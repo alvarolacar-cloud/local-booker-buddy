@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
 });
 
 
-const heroTabs = ["Oportunidades", "Análisis", "Subastas", "Agencias en venta"];
+const heroTabs = ["Oportunidades", "Nuestros Servicios", "Todos los Sectores"];
 
 
 const sectorChips = [
@@ -87,7 +87,7 @@ function Index() {
         <div className="absolute inset-0 -z-10 bg-foreground/40" />
         <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-36 text-center text-white">
           <h1 className="mx-auto mb-6 max-w-3xl text-4xl font-bold leading-tight drop-shadow-lg md:text-5xl">
-            Oportunidades en Google para tu Empresa
+            Detectamos oportunidades en Google para tu empresa
           </h1>
 
           <div className="mx-auto max-w-3xl rounded-md bg-white/95 p-0 text-foreground shadow-2xl backdrop-blur">
