@@ -12,7 +12,7 @@ export function SiteHeader() {
             </span>
           </Link>
           <nav className="hidden items-center gap-6 text-sm font-medium text-foreground/80 md:flex">
-            <a href="#" className="hover:text-primary">Oportunidades en Google</a>
+            <Link to="/oportunidades" className="hover:text-primary">Oportunidades en Google</Link>
             <a href="#" className="hover:text-primary">Nuestros Casos de Éxito</a>
             <a href="#" className="hover:text-primary">Cómo Funciona</a>
             <a href="#" className="hover:text-primary">Guias</a>
