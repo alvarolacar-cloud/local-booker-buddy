@@ -34,20 +34,20 @@ const successCases = [
 ];
 
 const activeSectors = [
-  { slug: "fontaneros-en-madrid", title: "Fontanería", desc: "Apareces el primero cuando alguien busca 'fontanero urgente' en tu ciudad.", volume: "14.800 búsq./mes", cities: "6 ciudades" },
-  { slug: "electricidad", title: "Electricidad", desc: "Capta avisos urgentes y reformas eléctricas desde Google Maps.", volume: "9.900 búsq./mes", cities: "5 ciudades" },
-  { slug: "reformas-integrales-en-malaga", title: "Reformas", desc: "Llena tu pipeline de presupuestos cualificados por barrio sin depender de portales.", volume: "12.100 búsq./mes", cities: "6 ciudades" },
-  { slug: "clinicas-dentales-en-barcelona", title: "Odontología", desc: "Llena la agenda de primeras visitas locales sin depender de Doctoralia.", volume: "22.300 búsq./mes", cities: "6 ciudades" },
-  { slug: "abogados-en-valencia", title: "Abogacía", desc: "Capta clientes de tu provincia con SEO local y contenido jurídico.", volume: "8.100 búsq./mes", cities: "5 ciudades" },
-  { slug: "inmobiliaria", title: "Inmobiliaria", desc: "Posiciona tu inmobiliaria por cada barrio y tipo de inmueble.", volume: "18.500 búsq./mes", cities: "4 ciudades" },
-  { slug: "peluquerias-en-sevilla", title: "Peluquería", desc: "Más reservas desde Google Maps y reseñas reales de clientes de la zona.", volume: "11.200 búsq./mes", cities: "6 ciudades" },
-  { slug: "talleres-mecanicos-en-bilbao", title: "Mecánica", desc: "Que tu taller aparezca antes que las cadenas cuando buscan 'taller cerca'.", volume: "9.700 búsq./mes", cities: "6 ciudades" },
-  { slug: "restaurantes-en-madrid", title: "Restauración", desc: "Más reservas directas desde Google y menos comisiones a TheFork.", volume: "31.400 búsq./mes", cities: "6 ciudades" },
-  { slug: "fitness", title: "Fitness", desc: "Capta socios de tu zona en lugar de competir con bonopases por Ads.", volume: "7.200 búsq./mes", cities: "6 ciudades" },
-  { slug: "estetica", title: "Estética", desc: "Llena tu cabina con clientes de tu barrio cuando a Google y reseñas.", volume: "8.800 búsq./mes", cities: "5 ciudades" },
-  { slug: "veterinaria", title: "Veterinaria", desc: "Clientes fieles de tu zona buscando 'veterinario 24h' o 'peluquería canina'.", volume: "5.400 búsq./mes", cities: "4 ciudades" },
-  { slug: "formacion", title: "Formación", desc: "Más matrículas locales sin depender de portales de cursos.", volume: "6.100 búsq./mes", cities: "4 ciudades" },
-  { slug: "fotografia", title: "Fotografía", desc: "Posiciónate para 'fotógrafo de boda [ciudad]' y déjate de pagar a Ads.", volume: "3.100 búsq./mes", cities: "5 ciudades" },
+  { slug: "fontaneros-en-madrid", title: "Fontanería", icon: Wrench, volume: "14.800 búsq./mes" },
+  { slug: "electricidad", title: "Electricidad", icon: Zap, volume: "9.900 búsq./mes" },
+  { slug: "reformas-integrales-en-malaga", title: "Reformas", icon: Hammer, volume: "12.100 búsq./mes" },
+  { slug: "clinicas-dentales-en-barcelona", title: "Odontología", icon: Stethoscope, volume: "22.300 búsq./mes" },
+  { slug: "abogados-en-valencia", title: "Abogacía", icon: Scale, volume: "8.100 búsq./mes" },
+  { slug: "inmobiliaria", title: "Inmobiliaria", icon: Home, volume: "18.500 búsq./mes" },
+  { slug: "peluquerias-en-sevilla", title: "Peluquería", icon: Scissors, volume: "11.200 búsq./mes" },
+  { slug: "talleres-mecanicos-en-bilbao", title: "Mecánica", icon: Car, volume: "9.700 búsq./mes" },
+  { slug: "restaurantes-en-madrid", title: "Restauración", icon: UtensilsCrossed, volume: "31.400 búsq./mes" },
+  { slug: "fitness", title: "Fitness", icon: Dumbbell, volume: "7.200 búsq./mes" },
+  { slug: "estetica", title: "Estética", icon: Sparkles, volume: "8.800 búsq./mes" },
+  { slug: "veterinaria", title: "Veterinaria", icon: PawPrint, volume: "5.400 búsq./mes" },
+  { slug: "formacion", title: "Formación", icon: GraduationCap, volume: "6.100 búsq./mes" },
+  { slug: "fotografia", title: "Fotografía", icon: Camera, volume: "3.100 búsq./mes" },
 ];
 
 const trendingSectors = [
