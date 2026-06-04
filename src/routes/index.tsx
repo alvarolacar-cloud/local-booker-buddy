@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
 });
 
 
-const heroTabs = ["Oportunidades", "Nuestros Servicios", "Todos los Sectores"];
+const heroTabs = ["Inicio", "Oportunidades", "Todos los Sectores"];
 
 
 const sectorChips = [
