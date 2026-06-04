@@ -17,7 +17,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useState } from "react";
-import heroCity from "@/assets/hero-nyc.jpg.asset.json";
+import heroPro from "@/assets/hero-pro.jpg";
 import cityMadrid from "@/assets/city-madrid.jpg";
 import cityBarcelona from "@/assets/city-barcelona.jpg";
 import cityValencia from "@/assets/city-valencia.jpg";
