@@ -234,24 +234,39 @@ export default function OportunidadesPage() {
 
         {/* Sectores con oportunidades activas */}
         <section className="mt-20">
-          <h2 className="mb-1 text-2xl font-bold">Sectores con oportunidades activas</h2>
-          <p className="mb-5 text-sm text-foreground/70">Estos son los sectores donde hemos detectado hueco real en Google. Trabajamos con cualquier negocio local bajo demanda.</p>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
-            {activeSectors.map((s) => (
-              <Link key={s.title} to="/oportunidad/$slug" params={{ slug: s.slug }} className="group block rounded-xl border border-border bg-card p-4 transition hover:shadow-lg">
-                <div className="mb-2 flex items-center gap-2">
-                  <TrendingUp className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-semibold">{s.title}</span>
-                </div>
-                <p className="line-clamp-3 text-xs text-foreground/70">{s.desc}</p>
-                <div className="mt-3 flex items-center justify-between border-t border-border pt-2 text-[11px]">
-                  <span className="font-semibold text-foreground">{s.volume}</span>
-                  <span className="text-foreground/60">{s.cities}</span>
-                </div>
-              </Link>
-            ))}
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-2xl font-bold">Encuentra oportunidades para cada sector</h2>
+              <p className="mt-1 text-sm text-foreground/70">Sectores donde hemos detectado hueco real en Google. Trabajamos con cualquier negocio local bajo demanda.</p>
+            </div>
+            <Link to="/oportunidades" className="hidden shrink-0 items-center gap-1 text-sm font-semibold text-primary hover:underline md:flex">
+              Ver todos los sectores <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {activeSectors.map((s) => {
+              const Icon = s.icon;
+              return (
+                <Link
+                  key={s.title}
+                  to="/oportunidad/$slug"
+                  params={{ slug: s.slug }}
+                  className="group relative flex h-32 flex-col justify-between rounded-2xl border border-border bg-card p-4 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-[0_8px_24px_-12px_rgba(16,185,129,0.35)]"
+                >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 transition group-hover:bg-emerald-100">
+                    <Icon className="h-4 w-4" strokeWidth={2.25} />
+                  </div>
+                  <div>
+                    <div className="text-[15px] font-semibold leading-snug">{s.title}</div>
+                    <div className="mt-0.5 text-[11px] text-foreground/55">{s.volume}</div>
+                  </div>
+                  <ArrowUpRight className="absolute right-3 top-3 h-4 w-4 text-foreground/30 opacity-0 transition group-hover:opacity-100" />
+                </Link>
+              );
+            })}
           </div>
         </section>
+
 
         {/* CTA */}
         <section className="mt-16 rounded-2xl bg-[#0b1f3a] p-10 text-center text-white">
