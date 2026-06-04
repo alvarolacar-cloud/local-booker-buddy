@@ -143,10 +143,10 @@ function Index() {
             <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/55 to-transparent" />
             <div className="relative px-8 py-14 text-white md:px-14 md:py-20">
               <h1 className="max-w-2xl text-[44px] font-bold leading-[1.05] tracking-tight md:text-[64px]">
-                Posiciona a la velocidad<br />de tu ambición
+                Te ayudo a escalar<br />posiciones en Google
               </h1>
-              <p className="mt-5 max-w-md text-base text-white/85 md:text-lg">
-                Capta clientes que ya te buscan en Google. Detecta los nichos locales más rentables y conviértelos en leads reales.
+              <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
+                Me he fijado en tu negocio por la oportunidad real que veo —ROI, poca competencia local— y porque sé exactamente cómo hacer que mejores tu posicionamiento.
               </p>
 
               <div className="mt-8 max-w-xl">
