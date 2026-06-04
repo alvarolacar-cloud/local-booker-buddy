@@ -257,9 +257,6 @@ function Index() {
           </div>
         </div>
 
-            </div>
-          </div>
-        </div>
 
         {/* Trust logos */}
         <div className="mx-auto max-w-[1280px] px-6 pb-10">
