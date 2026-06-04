@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Search, BarChart3, Users, Rocket, Star, TrendingUp, ChevronRight, Phone } from "lucide-react";
 
@@ -18,54 +18,54 @@ const catalogTabs = ["Todas", "Alta demanda", "Baja competencia", "Top ticket me
 const popularChips = ["Fontaneros Madrid", "Dentistas Barcelona", "Abogados Valencia"];
 
 const openOpportunities = [
-  { city: "MADRID", title: "Fontaneros en Madrid", volume: "14.300 búsq./mes", competition: "Competencia alta", competitionTone: "high", score: 82 },
-  { city: "BARCELONA", title: "Clínicas dentales en Barcelona", volume: "22.300 búsq./mes", competition: "Competencia alta", competitionTone: "high", score: 78 },
-  { city: "VALENCIA", title: "Abogados en Valencia", volume: "8.100 búsq./mes", competition: "Competencia media", competitionTone: "mid", score: 74 },
-  { city: "SEVILLA", title: "Peluquerías en Sevilla", volume: "6.400 búsq./mes", competition: "Competencia media", competitionTone: "mid", score: 86 },
-  { city: "BILBAO", title: "Talleres mecánicos en Bilbao", volume: "4.200 búsq./mes", competition: "Competencia baja", competitionTone: "low", score: 88 },
-  { city: "MÁLAGA", title: "Reformas integrales en Málaga", volume: "9.700 búsq./mes", competition: "Competencia media", competitionTone: "mid", score: 84 },
+  { slug: "fontaneros-en-madrid", city: "MADRID", title: "Fontaneros en Madrid", volume: "14.300 búsq./mes", competition: "Competencia alta", competitionTone: "high", score: 82 },
+  { slug: "clinicas-dentales-en-barcelona", city: "BARCELONA", title: "Clínicas dentales en Barcelona", volume: "22.300 búsq./mes", competition: "Competencia alta", competitionTone: "high", score: 78 },
+  { slug: "abogados-en-valencia", city: "VALENCIA", title: "Abogados en Valencia", volume: "8.100 búsq./mes", competition: "Competencia media", competitionTone: "mid", score: 74 },
+  { slug: "peluquerias-en-sevilla", city: "SEVILLA", title: "Peluquerías en Sevilla", volume: "6.400 búsq./mes", competition: "Competencia media", competitionTone: "mid", score: 86 },
+  { slug: "talleres-mecanicos-en-bilbao", city: "BILBAO", title: "Talleres mecánicos en Bilbao", volume: "4.200 búsq./mes", competition: "Competencia baja", competitionTone: "low", score: 88 },
+  { slug: "reformas-integrales-en-malaga", city: "MÁLAGA", title: "Reformas integrales en Málaga", volume: "9.700 búsq./mes", competition: "Competencia media", competitionTone: "mid", score: 84 },
 ];
 
 const successCases = [
-  { tag: "Fontanería", name: "Fontanería Ríos", city: "Madrid", rating: 9.4, reviews: 117, before: "Posición 14 en Google", after: "Top 3 en Google Maps", kpi: "+180% llamadas en 6 meses", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&auto=format&fit=crop" },
-  { tag: "Clínicas dentales", name: "Clínica Dental Sonríe", city: "Barcelona", rating: 9.2, reviews: 198, before: "0 reseñas en Google", after: "198 reseñas 4.9★", kpi: "+62 primeras visitas/mes", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&auto=format&fit=crop" },
-  { tag: "Peluquerías", name: "Barbería El Capitán", city: "Valencia", rating: 8.9, reviews: 87, before: "Invisible en Maps", after: "1º en su barrio", kpi: "Agenda llena 3 semanas vista", img: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&auto=format&fit=crop" },
-  { tag: "Talleres mecánicos", name: "Taller Distrito Norte", city: "Sevilla", rating: 9.6, reviews: 421, before: "Sin web", after: "Top 5 'taller cerca'", kpi: "+210% presupuestos pedidos", img: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=600&auto=format&fit=crop" },
+  { slug: "fontaneros-en-madrid", tag: "Fontanería", name: "Fontanería Ríos", city: "Madrid", rating: 9.4, reviews: 117, before: "Posición 14 en Google", after: "Top 3 en Google Maps", kpi: "+180% llamadas en 6 meses", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&auto=format&fit=crop" },
+  { slug: "clinicas-dentales-en-barcelona", tag: "Clínicas dentales", name: "Clínica Dental Sonríe", city: "Barcelona", rating: 9.2, reviews: 198, before: "0 reseñas en Google", after: "198 reseñas 4.9★", kpi: "+62 primeras visitas/mes", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&auto=format&fit=crop" },
+  { slug: "peluquerias-en-sevilla", tag: "Peluquerías", name: "Barbería El Capitán", city: "Valencia", rating: 8.9, reviews: 87, before: "Invisible en Maps", after: "1º en su barrio", kpi: "Agenda llena 3 semanas vista", img: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&auto=format&fit=crop" },
+  { slug: "talleres-mecanicos-en-bilbao", tag: "Talleres mecánicos", name: "Taller Distrito Norte", city: "Sevilla", rating: 9.6, reviews: 421, before: "Sin web", after: "Top 5 'taller cerca'", kpi: "+210% presupuestos pedidos", img: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=600&auto=format&fit=crop" },
 ];
 
 const activeSectors = [
-  { title: "Fontanería", desc: "Apareces el primero cuando alguien busca 'fontanero urgente' en tu ciudad.", volume: "14.800 búsq./mes", cities: "6 ciudades" },
-  { title: "Electricidad", desc: "Capta avisos urgentes y reformas eléctricas desde Google Maps.", volume: "9.900 búsq./mes", cities: "5 ciudades" },
-  { title: "Reformas", desc: "Llena tu pipeline de presupuestos cualificados por barrio sin depender de portales.", volume: "12.100 búsq./mes", cities: "6 ciudades" },
-  { title: "Odontología", desc: "Llena la agenda de primeras visitas locales sin depender de Doctoralia.", volume: "22.300 búsq./mes", cities: "6 ciudades" },
-  { title: "Abogacía", desc: "Capta clientes de tu provincia con SEO local y contenido jurídico.", volume: "8.100 búsq./mes", cities: "5 ciudades" },
-  { title: "Inmobiliaria", desc: "Posiciona tu inmobiliaria por cada barrio y tipo de inmueble.", volume: "18.500 búsq./mes", cities: "4 ciudades" },
-  { title: "Peluquería", desc: "Más reservas desde Google Maps y reseñas reales de clientes de la zona.", volume: "11.200 búsq./mes", cities: "6 ciudades" },
-  { title: "Mecánica", desc: "Que tu taller aparezca antes que las cadenas cuando buscan 'taller cerca'.", volume: "9.700 búsq./mes", cities: "6 ciudades" },
-  { title: "Restauración", desc: "Más reservas directas desde Google y menos comisiones a TheFork.", volume: "31.400 búsq./mes", cities: "6 ciudades" },
-  { title: "Fitness", desc: "Capta socios de tu zona en lugar de competir con bonopases por Ads.", volume: "7.200 búsq./mes", cities: "6 ciudades" },
-  { title: "Estética", desc: "Llena tu cabina con clientes de tu barrio cuando a Google y reseñas.", volume: "8.800 búsq./mes", cities: "5 ciudades" },
-  { title: "Veterinaria", desc: "Clientes fieles de tu zona buscando 'veterinario 24h' o 'peluquería canina'.", volume: "5.400 búsq./mes", cities: "4 ciudades" },
-  { title: "Formación", desc: "Más matrículas locales sin depender de portales de cursos.", volume: "6.100 búsq./mes", cities: "4 ciudades" },
-  { title: "Fotografía", desc: "Posiciónate para 'fotógrafo de boda [ciudad]' y déjate de pagar a Ads.", volume: "3.100 búsq./mes", cities: "5 ciudades" },
+  { slug: "fontaneros-en-madrid", title: "Fontanería", desc: "Apareces el primero cuando alguien busca 'fontanero urgente' en tu ciudad.", volume: "14.800 búsq./mes", cities: "6 ciudades" },
+  { slug: "electricidad", title: "Electricidad", desc: "Capta avisos urgentes y reformas eléctricas desde Google Maps.", volume: "9.900 búsq./mes", cities: "5 ciudades" },
+  { slug: "reformas-integrales-en-malaga", title: "Reformas", desc: "Llena tu pipeline de presupuestos cualificados por barrio sin depender de portales.", volume: "12.100 búsq./mes", cities: "6 ciudades" },
+  { slug: "clinicas-dentales-en-barcelona", title: "Odontología", desc: "Llena la agenda de primeras visitas locales sin depender de Doctoralia.", volume: "22.300 búsq./mes", cities: "6 ciudades" },
+  { slug: "abogados-en-valencia", title: "Abogacía", desc: "Capta clientes de tu provincia con SEO local y contenido jurídico.", volume: "8.100 búsq./mes", cities: "5 ciudades" },
+  { slug: "inmobiliaria", title: "Inmobiliaria", desc: "Posiciona tu inmobiliaria por cada barrio y tipo de inmueble.", volume: "18.500 búsq./mes", cities: "4 ciudades" },
+  { slug: "peluquerias-en-sevilla", title: "Peluquería", desc: "Más reservas desde Google Maps y reseñas reales de clientes de la zona.", volume: "11.200 búsq./mes", cities: "6 ciudades" },
+  { slug: "talleres-mecanicos-en-bilbao", title: "Mecánica", desc: "Que tu taller aparezca antes que las cadenas cuando buscan 'taller cerca'.", volume: "9.700 búsq./mes", cities: "6 ciudades" },
+  { slug: "restaurantes-en-madrid", title: "Restauración", desc: "Más reservas directas desde Google y menos comisiones a TheFork.", volume: "31.400 búsq./mes", cities: "6 ciudades" },
+  { slug: "fitness", title: "Fitness", desc: "Capta socios de tu zona en lugar de competir con bonopases por Ads.", volume: "7.200 búsq./mes", cities: "6 ciudades" },
+  { slug: "estetica", title: "Estética", desc: "Llena tu cabina con clientes de tu barrio cuando a Google y reseñas.", volume: "8.800 búsq./mes", cities: "5 ciudades" },
+  { slug: "veterinaria", title: "Veterinaria", desc: "Clientes fieles de tu zona buscando 'veterinario 24h' o 'peluquería canina'.", volume: "5.400 búsq./mes", cities: "4 ciudades" },
+  { slug: "formacion", title: "Formación", desc: "Más matrículas locales sin depender de portales de cursos.", volume: "6.100 búsq./mes", cities: "4 ciudades" },
+  { slug: "fotografia", title: "Fotografía", desc: "Posiciónate para 'fotógrafo de boda [ciudad]' y déjate de pagar a Ads.", volume: "3.100 búsq./mes", cities: "5 ciudades" },
 ];
 
 const trendingSectors = [
-  { name: "Restaurantes en Madrid", trend: "+19% vs mes anterior" },
-  { name: "Clínicas dentales en Barcelona", trend: "+18% vs mes anterior" },
-  { name: "Fontaneros en Madrid", trend: "+13% vs mes anterior" },
+  { slug: "restaurantes-en-madrid", name: "Restaurantes en Madrid", trend: "+19% vs mes anterior" },
+  { slug: "clinicas-dentales-en-barcelona", name: "Clínicas dentales en Barcelona", trend: "+18% vs mes anterior" },
+  { slug: "fontaneros-en-madrid", name: "Fontaneros en Madrid", trend: "+13% vs mes anterior" },
 ];
 
 const lowCompetition = [
-  { name: "Talleres mecánicos en Bilbao", left: "Baja competencia", right: "Alta demanda", score: "88/100" },
-  { name: "Peluquerías en Sevilla", left: "Baja competencia", right: "Alta demanda", score: "86/100" },
-  { name: "Reformas integrales en Málaga", left: "Baja competencia", right: "Alta demanda", score: "84/100" },
+  { slug: "talleres-mecanicos-en-bilbao", name: "Talleres mecánicos en Bilbao", left: "Baja competencia", right: "Alta demanda", score: "88/100" },
+  { slug: "peluquerias-en-sevilla", name: "Peluquerías en Sevilla", left: "Baja competencia", right: "Alta demanda", score: "86/100" },
+  { slug: "reformas-integrales-en-malaga", name: "Reformas integrales en Málaga", left: "Baja competencia", right: "Alta demanda", score: "84/100" },
 ];
 
 const topTicket = [
-  { name: "Abogados en Valencia", ticket: "Ticket 1.080€", roi: "ROI 36.290€/mes" },
-  { name: "Clínicas dentales en Barcelona", ticket: "Ticket 860€", roi: "ROI 89.520€/mes" },
-  { name: "Reformas integrales en Málaga", ticket: "Ticket 3.500€", roi: "ROI 30.240€/mes" },
+  { slug: "abogados-en-valencia", name: "Abogados en Valencia", ticket: "Ticket 1.080€", roi: "ROI 36.290€/mes" },
+  { slug: "clinicas-dentales-en-barcelona", name: "Clínicas dentales en Barcelona", ticket: "Ticket 860€", roi: "ROI 89.520€/mes" },
+  { slug: "reformas-integrales-en-malaga", name: "Reformas integrales en Málaga", ticket: "Ticket 3.500€", roi: "ROI 30.240€/mes" },
 ];
 
 function ScoreBar({ value }: { value: number }) {
@@ -166,7 +166,7 @@ export default function OportunidadesPage() {
                 <div className="flex justify-between"><span className="text-foreground/70">ROI estimado</span><span>36.290€/mes</span></div>
                 <div className="flex justify-between border-t border-border pt-2"><span className="text-foreground/70">Score</span><span className="font-bold text-primary">82/100</span></div>
               </div>
-              <button className="mt-4 w-full rounded-full bg-foreground py-2 text-sm font-semibold text-background">Ver informe completo</button>
+              <Link to="/oportunidad/$slug" params={{ slug: "fontaneros-en-madrid" }} className="mt-4 block w-full rounded-full bg-foreground py-2 text-center text-sm font-semibold text-background">Ver informe completo</Link>
             </div>
           </div>
         </section>
@@ -177,7 +177,7 @@ export default function OportunidadesPage() {
           <p className="mb-5 text-sm text-foreground/70">Sectores y ciudades con hueco real en Google. Entra al informe y mira los números por dentro.</p>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {openOpportunities.map((o) => (
-              <a key={o.title} href="#" className="group overflow-hidden rounded-xl border border-border bg-card transition hover:shadow-lg">
+              <Link key={o.title} to="/oportunidad/$slug" params={{ slug: o.slug }} className="group block overflow-hidden rounded-xl border border-border bg-card transition hover:shadow-lg">
                 <div className="aspect-[16/7] overflow-hidden">
                   <img src={`https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&auto=format&fit=crop&sig=${o.city}`} alt="" className="h-full w-full object-cover transition group-hover:scale-105" />
                 </div>
@@ -189,11 +189,11 @@ export default function OportunidadesPage() {
                     <span className={`rounded-md px-2 py-1 font-medium ${compChip(o.competitionTone)}`}>{o.competition}</span>
                   </div>
                   <ScoreBar value={o.score} />
-                  <a href="#" className="inline-flex items-center gap-1 border-t border-border pt-3 text-sm font-semibold text-primary">
+                  <span className="inline-flex items-center gap-1 border-t border-border pt-3 text-sm font-semibold text-primary">
                     Ver informe completo <ChevronRight className="h-4 w-4" />
-                  </a>
+                  </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
@@ -209,7 +209,7 @@ export default function OportunidadesPage() {
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             {successCases.map((c) => (
-              <a key={c.name} href="#" className="group overflow-hidden rounded-xl border border-border bg-card hover:shadow-lg">
+              <Link key={c.name} to="/oportunidad/$slug" params={{ slug: c.slug }} className="group block overflow-hidden rounded-xl border border-border bg-card hover:shadow-lg">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <span className="absolute left-3 top-3 z-10 rounded-md bg-primary px-2 py-1 text-[10px] font-semibold text-primary-foreground">{c.tag}</span>
                   <img src={c.img} alt={c.name} className="h-full w-full object-cover transition group-hover:scale-105" />
@@ -227,7 +227,7 @@ export default function OportunidadesPage() {
                     <div className="font-semibold text-primary">{c.kpi}</div>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
@@ -238,7 +238,7 @@ export default function OportunidadesPage() {
           <p className="mb-5 text-sm text-foreground/70">Estos son los sectores donde hemos detectado hueco real en Google. Trabajamos con cualquier negocio local bajo demanda.</p>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
             {activeSectors.map((s) => (
-              <a key={s.title} href="#" className="group rounded-xl border border-border bg-card p-4 transition hover:shadow-lg">
+              <Link key={s.title} to="/oportunidad/$slug" params={{ slug: s.slug }} className="group block rounded-xl border border-border bg-card p-4 transition hover:shadow-lg">
                 <div className="mb-2 flex items-center gap-2">
                   <TrendingUp className="h-4 w-4 text-primary" />
                   <span className="text-sm font-semibold">{s.title}</span>
@@ -248,7 +248,7 @@ export default function OportunidadesPage() {
                   <span className="font-semibold text-foreground">{s.volume}</span>
                   <span className="text-foreground/60">{s.cities}</span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
@@ -277,12 +277,14 @@ export default function OportunidadesPage() {
               <p className="mb-4 text-xs text-foreground/70">Más búsquedas este mes. El usuario quiere ver qué está creciendo ahora.</p>
               <ul className="space-y-3 text-sm">
                 {trendingSectors.map((t) => (
-                  <li key={t.name} className="flex items-center justify-between border-b border-border pb-2 last:border-0">
-                    <div>
-                      <div className="font-medium">{t.name}</div>
-                      <div className="text-[11px] text-emerald-600">{t.trend}</div>
-                    </div>
-                    <TrendingUp className="h-4 w-4 text-emerald-600" />
+                  <li key={t.name}>
+                    <Link to="/oportunidad/$slug" params={{ slug: t.slug }} className="flex items-center justify-between border-b border-border pb-2 last:border-0 hover:text-primary">
+                      <div>
+                        <div className="font-medium">{t.name}</div>
+                        <div className="text-[11px] text-emerald-600">{t.trend}</div>
+                      </div>
+                      <TrendingUp className="h-4 w-4 text-emerald-600" />
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -292,15 +294,17 @@ export default function OportunidadesPage() {
               <p className="mb-4 text-xs text-foreground/70">Buen volumen de búsqueda pero pocos profesionales posicionados. Ideal para entrar fácil.</p>
               <ul className="space-y-3 text-sm">
                 {lowCompetition.map((t) => (
-                  <li key={t.name} className="border-b border-border pb-2 last:border-0">
-                    <div className="flex items-center justify-between">
-                      <div className="font-medium">{t.name}</div>
-                      <span className="text-xs font-semibold">{t.score}</span>
-                    </div>
-                    <div className="mt-1 flex gap-2 text-[11px] text-foreground/60">
-                      <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-emerald-700">{t.left}</span>
-                      <span className="rounded bg-amber-100 px-1.5 py-0.5 text-amber-700">{t.right}</span>
-                    </div>
+                  <li key={t.name}>
+                    <Link to="/oportunidad/$slug" params={{ slug: t.slug }} className="block border-b border-border pb-2 last:border-0 hover:text-primary">
+                      <div className="flex items-center justify-between">
+                        <div className="font-medium">{t.name}</div>
+                        <span className="text-xs font-semibold">{t.score}</span>
+                      </div>
+                      <div className="mt-1 flex gap-2 text-[11px] text-foreground/60">
+                        <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-emerald-700">{t.left}</span>
+                        <span className="rounded bg-amber-100 px-1.5 py-0.5 text-amber-700">{t.right}</span>
+                      </div>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -310,12 +314,14 @@ export default function OportunidadesPage() {
               <p className="mb-4 text-xs text-foreground/70">Los cruces más rentables ordenados por ticket. Entra donde cada cliente vale más.</p>
               <ul className="space-y-3 text-sm">
                 {topTicket.map((t) => (
-                  <li key={t.name} className="border-b border-border pb-2 last:border-0">
-                    <div className="font-medium">{t.name}</div>
-                    <div className="mt-1 flex gap-2 text-[11px]">
-                      <span className="rounded bg-muted px-1.5 py-0.5 font-medium">{t.ticket}</span>
-                      <span className="rounded bg-primary/10 px-1.5 py-0.5 font-semibold text-primary">{t.roi}</span>
-                    </div>
+                  <li key={t.name}>
+                    <Link to="/oportunidad/$slug" params={{ slug: t.slug }} className="block border-b border-border pb-2 last:border-0 hover:text-primary">
+                      <div className="font-medium">{t.name}</div>
+                      <div className="mt-1 flex gap-2 text-[11px]">
+                        <span className="rounded bg-muted px-1.5 py-0.5 font-medium">{t.ticket}</span>
+                        <span className="rounded bg-primary/10 px-1.5 py-0.5 font-semibold text-primary">{t.roi}</span>
+                      </div>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -330,12 +336,12 @@ export default function OportunidadesPage() {
             <div>
               <div className="mb-3 font-semibold">Oportunidades</div>
               <ul className="space-y-2 text-white/70">
-                <li>Fontaneros en Madrid</li>
-                <li>Dentistas en Barcelona</li>
-                <li>Abogados en Valencia</li>
-                <li>Reformas en Málaga</li>
-                <li>Talleres en Bilbao</li>
-                <li>Ver todas</li>
+                <li><Link to="/oportunidad/$slug" params={{ slug: "fontaneros-en-madrid" }} className="hover:text-white">Fontaneros en Madrid</Link></li>
+                <li><Link to="/oportunidad/$slug" params={{ slug: "clinicas-dentales-en-barcelona" }} className="hover:text-white">Dentistas en Barcelona</Link></li>
+                <li><Link to="/oportunidad/$slug" params={{ slug: "abogados-en-valencia" }} className="hover:text-white">Abogados en Valencia</Link></li>
+                <li><Link to="/oportunidad/$slug" params={{ slug: "reformas-integrales-en-malaga" }} className="hover:text-white">Reformas en Málaga</Link></li>
+                <li><Link to="/oportunidad/$slug" params={{ slug: "talleres-mecanicos-en-bilbao" }} className="hover:text-white">Talleres en Bilbao</Link></li>
+                <li><Link to="/oportunidades" className="hover:text-white">Ver todas</Link></li>
               </ul>
             </div>
             <div>
