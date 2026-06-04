@@ -12,11 +12,10 @@ export function SiteHeader() {
             </span>
           </Link>
           <nav className="hidden items-center gap-6 text-sm font-medium text-foreground/80 md:flex">
-            <a href="#" className="hover:text-primary">Sectores</a>
-            <a href="#" className="hover:text-primary">Ciudades</a>
-            <a href="#" className="hover:text-primary">Cómo funciona</a>
-            <a href="#" className="hover:text-primary">Precios</a>
-            <a href="#" className="hover:text-primary">Recursos</a>
+            <a href="#" className="hover:text-primary">Oportunidades en Google</a>
+            <a href="#" className="hover:text-primary">Nuestros Casos de Éxito</a>
+            <a href="#" className="hover:text-primary">Cómo Funciona</a>
+            <a href="#" className="hover:text-primary">Guias</a>
           </nav>
         </div>
         <div className="flex items-center gap-3 text-sm font-medium">
