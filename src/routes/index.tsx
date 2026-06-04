@@ -223,25 +223,21 @@ function Index() {
       </section>
 
 
-      {/* Popular cities */}
+      {/* Sectores populares */}
       <section className="mx-auto max-w-[1280px] px-6 py-14">
         <h2 className="text-xl font-semibold">Explora oportunidades en tu sector</h2>
-        <div className="mt-2 flex gap-6 border-b border-border text-sm">
-          <button className="-mb-px border-b-2 border-primary pb-2 font-medium text-primary">Ciudades ES</button>
-          <button className="-mb-px border-b-2 border-transparent pb-2 text-muted-foreground hover:text-foreground">Ciudades LATAM</button>
-        </div>
         <div className="relative mt-6">
           <button className="absolute -left-3 top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card shadow md:flex">
             <ChevronLeft className="h-4 w-4" />
           </button>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {cities.map((c) => (
-              <a key={c.name} href="#" className="group">
+            {sectors.map((s) => (
+              <a key={s.name} href="#" className="group">
                 <div className="overflow-hidden rounded-md">
-                  <img src={c.img} alt={c.name} loading="lazy" className="aspect-[4/5] w-full object-cover transition group-hover:scale-105" />
+                  <img src={s.img} alt={s.name} loading="lazy" className="aspect-[4/5] w-full object-cover transition group-hover:scale-105" />
                 </div>
-                <div className="mt-2 text-sm font-semibold">{c.name}</div>
-                <div className="text-xs text-muted-foreground">{c.count}</div>
+                <div className="mt-2 text-sm font-semibold">{s.name}</div>
+                <div className="text-xs text-muted-foreground">{s.count}</div>
               </a>
             ))}
           </div>
