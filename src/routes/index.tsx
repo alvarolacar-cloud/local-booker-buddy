@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Search,
   Zap,
@@ -42,25 +42,25 @@ export const Route = createFileRoute("/")({
 const heroTabs = ["Inicio", "Oportunidades", "Todos los Sectores"];
 
 const sectorChips = [
-  { label: "Electricistas", Icon: Zap },
-  { label: "Fontaneros", Icon: Wrench },
-  { label: "Dentistas", Icon: Stethoscope },
-  { label: "Abogados", Icon: Scale },
-  { label: "Peluquerías", Icon: Scissors },
-  { label: "Reformas", Icon: Hammer },
+  { label: "Electricistas", slug: "electricistas", Icon: Zap },
+  { label: "Fontaneros", slug: "fontaneros", Icon: Wrench },
+  { label: "Dentistas", slug: "dentistas", Icon: Stethoscope },
+  { label: "Abogados", slug: "abogados", Icon: Scale },
+  { label: "Peluquerías", slug: "peluquerias", Icon: Scissors },
+  { label: "Reformas", slug: "reformas", Icon: Hammer },
 ];
 
 const sectorGrid = [
-  { name: "Electricistas", Icon: Zap },
-  { name: "Fontaneros", Icon: Wrench },
-  { name: "Dentistas", Icon: Stethoscope },
-  { name: "Abogados", Icon: Scale },
-  { name: "Peluquerías", Icon: Scissors },
-  { name: "Reformas", Icon: Hammer },
-  { name: "Cerrajeros", Icon: Briefcase },
-  { name: "Talleres", Icon: Car },
-  { name: "Veterinarios", Icon: PawPrint },
-  { name: "Asesorías", Icon: Building2 },
+  { name: "Electricistas", slug: "electricistas", Icon: Zap },
+  { name: "Fontaneros", slug: "fontaneros", Icon: Wrench },
+  { name: "Dentistas", slug: "dentistas", Icon: Stethoscope },
+  { name: "Abogados", slug: "abogados", Icon: Scale },
+  { name: "Peluquerías", slug: "peluquerias", Icon: Scissors },
+  { name: "Reformas", slug: "reformas", Icon: Hammer },
+  { name: "Cerrajeros", slug: "cerrajeros", Icon: Briefcase },
+  { name: "Talleres", slug: "talleres", Icon: Car },
+  { name: "Veterinarios", slug: "veterinarios", Icon: PawPrint },
+  { name: "Asesorías", slug: "asesorias", Icon: Building2 },
 ];
 
 const howStepsCompanies = [
@@ -194,14 +194,16 @@ function Index() {
                   </button>
                 </div>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  {sectorChips.slice(0, 4).map(({ label }) => (
-                    <button
+                  {sectorChips.slice(0, 4).map(({ label, slug }) => (
+                    <Link
                       key={label}
+                      to="/categoria/$slug"
+                      params={{ slug }}
                       className="flex items-center gap-1.5 rounded-full border border-white/30 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm transition hover:border-white hover:bg-white/15"
                     >
                       {label}
                       <svg className="h-3 w-3 opacity-60" viewBox="0 0 20 20" fill="none"><path d="M5.5 7.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -226,13 +228,13 @@ function Index() {
       <section className="mx-auto max-w-[1280px] px-6 py-10">
         <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Encuentra oportunidades para cada sector</h2>
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {sectorGrid.map(({ name, Icon }) => (
-            <a key={name} href="#" className="group flex flex-col gap-6 rounded-xl border border-border bg-card p-5 transition hover:border-primary hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
+          {sectorGrid.map(({ name, slug, Icon }) => (
+            <Link key={name} to="/categoria/$slug" params={{ slug }} className="group flex flex-col gap-6 rounded-xl border border-border bg-card p-5 transition hover:border-primary hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
               <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/30 bg-primary/5 text-primary">
                 <Icon className="h-5 w-5" />
               </span>
               <span className="text-[15px] font-semibold leading-snug group-hover:text-primary">{name}</span>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
