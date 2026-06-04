@@ -305,26 +305,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Podcast strip */}
-      <section className="mx-auto max-w-[1280px] px-6 pb-14">
-        <div className="grid items-stretch overflow-hidden rounded-md border border-border md:grid-cols-2">
-          <div className="bg-card p-8">
-            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">El podcast</div>
-            <h3 className="mt-1 text-xl font-semibold">En la SERP: conversaciones de SEO local</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Cada quincena hablamos con un profesional que ha levantado un negocio local gracias al SEO.</p>
-            <button className="mt-4 rounded-md border border-border px-4 py-2 text-sm font-medium hover:bg-muted">Escuchar episodios</button>
-          </div>
-          <div className="relative flex items-center justify-center bg-primary p-12 text-primary-foreground">
-            <svg className="absolute inset-0 h-full w-full opacity-20" viewBox="0 0 200 100" preserveAspectRatio="none">
-              <path d="M0,80 L20,60 L40,70 L60,40 L80,55 L100,30 L120,50 L140,25 L160,45 L180,20 L200,35 L200,100 L0,100 Z" fill="white" />
-            </svg>
-            <div className="relative text-right leading-none">
-              <div className="text-xs font-light uppercase tracking-widest opacity-80">en la</div>
-              <div className="text-5xl font-black tracking-tight">SERP</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA strip */}
       <section className="relative isolate overflow-hidden bg-foreground text-white">
