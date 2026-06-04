@@ -222,35 +222,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Featured opportunity */}
-      <section className="bg-muted">
-        <div className="mx-auto grid max-w-[1280px] gap-8 px-6 py-14 md:grid-cols-2 md:items-center">
-          <div className="relative overflow-hidden rounded-md">
-            <img src={featuredMadrid} alt="Cerrajeros Madrid centro" loading="lazy" className="aspect-[4/3] w-full object-cover" />
-            <div className="absolute left-4 top-4 rounded-md bg-card p-3 shadow-md">
-              <div className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Próximamente</div>
-              <div className="mt-1 text-sm font-semibold">Cerrajeros 24h</div>
-              <div className="text-xs text-muted-foreground">Madrid centro</div>
-              <div className="mt-2 text-sm font-bold">14.800/mes búsq.</div>
-              <div className="text-xs text-muted-foreground">KDI 31 · Comp. media</div>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-2xl font-semibold">Descubre tu próxima inversión en SEO local</h3>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Cada semana publicamos las oportunidades con mejor ratio volumen/competencia.
-              Únete y recibe alertas cuando aparezca un nicho a tu medida.
-            </p>
-            <a href="#" className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
-              Saber más sobre oportunidades destacadas <ChevronRight className="h-4 w-4" />
-            </a>
-            <div className="mt-6 inline-block rounded-md border border-border bg-card p-4">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Próximo informe · 12 de junio</div>
-              <a href="#" className="mt-2 inline-block text-sm font-medium text-primary hover:underline">Reservar plaza →</a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Popular cities */}
       <section className="mx-auto max-w-[1280px] px-6 py-14">
