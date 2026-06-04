@@ -194,14 +194,16 @@ function Index() {
                   </button>
                 </div>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  {sectorChips.slice(0, 4).map(({ label }) => (
-                    <button
+                  {sectorChips.slice(0, 4).map(({ label, slug }) => (
+                    <Link
                       key={label}
+                      to="/categoria/$slug"
+                      params={{ slug }}
                       className="flex items-center gap-1.5 rounded-full border border-white/30 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm transition hover:border-white hover:bg-white/15"
                     >
                       {label}
                       <svg className="h-3 w-3 opacity-60" viewBox="0 0 20 20" fill="none"><path d="M5.5 7.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>
