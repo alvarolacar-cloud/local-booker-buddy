@@ -42,25 +42,25 @@ export const Route = createFileRoute("/")({
 const heroTabs = ["Inicio", "Oportunidades", "Todos los Sectores"];
 
 const sectorChips = [
-  { label: "Electricistas", Icon: Zap },
-  { label: "Fontaneros", Icon: Wrench },
-  { label: "Dentistas", Icon: Stethoscope },
-  { label: "Abogados", Icon: Scale },
-  { label: "Peluquerías", Icon: Scissors },
-  { label: "Reformas", Icon: Hammer },
+  { label: "Electricistas", slug: "electricistas", Icon: Zap },
+  { label: "Fontaneros", slug: "fontaneros", Icon: Wrench },
+  { label: "Dentistas", slug: "dentistas", Icon: Stethoscope },
+  { label: "Abogados", slug: "abogados", Icon: Scale },
+  { label: "Peluquerías", slug: "peluquerias", Icon: Scissors },
+  { label: "Reformas", slug: "reformas", Icon: Hammer },
 ];
 
 const sectorGrid = [
-  { name: "Electricistas", Icon: Zap },
-  { name: "Fontaneros", Icon: Wrench },
-  { name: "Dentistas", Icon: Stethoscope },
-  { name: "Abogados", Icon: Scale },
-  { name: "Peluquerías", Icon: Scissors },
-  { name: "Reformas", Icon: Hammer },
-  { name: "Cerrajeros", Icon: Briefcase },
-  { name: "Talleres", Icon: Car },
-  { name: "Veterinarios", Icon: PawPrint },
-  { name: "Asesorías", Icon: Building2 },
+  { name: "Electricistas", slug: "electricistas", Icon: Zap },
+  { name: "Fontaneros", slug: "fontaneros", Icon: Wrench },
+  { name: "Dentistas", slug: "dentistas", Icon: Stethoscope },
+  { name: "Abogados", slug: "abogados", Icon: Scale },
+  { name: "Peluquerías", slug: "peluquerias", Icon: Scissors },
+  { name: "Reformas", slug: "reformas", Icon: Hammer },
+  { name: "Cerrajeros", slug: "cerrajeros", Icon: Briefcase },
+  { name: "Talleres", slug: "talleres", Icon: Car },
+  { name: "Veterinarios", slug: "veterinarios", Icon: PawPrint },
+  { name: "Asesorías", slug: "asesorias", Icon: Building2 },
 ];
 
 const howStepsCompanies = [
