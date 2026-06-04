@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Search, Zap, Wrench, Stethoscope, Scale, Scissors, Hammer, Car, Heart, MapPin, ChevronRight, ChevronLeft, ChevronDown, Globe } from "lucide-react";
+import { Search, Zap, Wrench, Stethoscope, Scale, Scissors, Hammer, Car, Heart, MapPin, ChevronRight, ChevronLeft } from "lucide-react";
 import heroCity from "@/assets/hero-city.jpg";
 import cityMadrid from "@/assets/city-madrid.jpg";
 import cityBarcelona from "@/assets/city-barcelona.jpg";
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-
+const heroTabs = ["Oportunidades", "Análisis", "Subastas", "Agencias en venta"];
 
 const sectorChips = [
   { label: "Electricistas", Icon: Zap },
@@ -63,47 +63,22 @@ const articles = [
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Top bar — Statista-style */}
-      <header className="bg-[color:var(--header-bar)] text-white border-b-4 border-[oklch(0.55_0.18_255)]">
-        <div className="mx-auto max-w-[1280px] px-6">
-          {/* Row 1: logo + search */}
-          <div className="flex h-16 items-center justify-between gap-8">
-            <a href="/" className="flex items-center gap-2 text-2xl font-bold tracking-tight">
-              <span className="text-white">localseo</span>
-              <span className="inline-flex h-5 w-7 items-center justify-center rounded-sm bg-white text-[color:var(--header-bar)] text-[10px] font-black">▸</span>
-            </a>
-            <div className="hidden flex-1 max-w-md md:block">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Buscar oportunidades"
-                  className="w-full rounded-sm bg-white px-4 py-2 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
-                />
-                <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              </div>
-            </div>
-          </div>
-          {/* Row 2: nav + login */}
-          <div className="flex h-12 items-center justify-between text-sm">
-            <nav className="flex items-center gap-6 font-semibold text-white">
-              <a href="#" className="flex items-center gap-1 hover:text-white/80">Oportunidades <ChevronDown className="h-4 w-4" /></a>
-              <a href="#" className="flex items-center gap-1 hover:text-white/80">Sectores <ChevronDown className="h-4 w-4" /></a>
-              <a href="#" className="hover:text-white/80">Análisis IA</a>
-              <a href="#" className="flex items-center gap-2 hover:text-white/80">
-                Ciudades
-                <span className="rounded-full bg-[oklch(0.55_0.18_255)] px-2 py-0.5 text-[10px] font-bold uppercase">New</span>
-              </a>
-              <a href="#" className="hover:text-white/80">Datos diarios</a>
-              <a href="#" className="flex items-center gap-1 hover:text-white/80">Servicios <ChevronDown className="h-4 w-4" /></a>
-              <a href="#" className="flex items-center gap-1 hover:text-white/80">Soluciones <ChevronDown className="h-4 w-4" /></a>
-              <a href="#" className="flex items-center gap-1 rounded-sm bg-[oklch(0.72_0.2_140)] px-3 py-1.5 text-[color:var(--header-bar)] hover:opacity-90">
-                Precios y acceso <ChevronDown className="h-4 w-4" />
-              </a>
-            </nav>
-            <div className="flex items-center gap-5 text-white">
-              <button className="hover:text-white/80"><Globe className="h-4 w-4" /></button>
-              <a href="#" className="font-semibold hover:text-white/80">Entrar</a>
-            </div>
+      {/* Top bar */}
+      <header className="bg-[color:var(--header-bar)] text-white">
+        <div className="mx-auto flex h-12 max-w-[1280px] items-center justify-between px-6 text-sm">
+          <a href="/" className="flex items-center gap-2 font-bold tracking-tight">
+            <span className="inline-block h-5 w-5 rounded-sm bg-white" />
+            <span className="text-white">LocalSEO<span className="font-light">Booker</span></span>
+          </a>
+          <nav className="hidden items-center gap-6 text-white/90 md:flex">
+            <a href="#" className="hover:text-white">Oportunidades</a>
+            <a href="#" className="hover:text-white">Ciudades</a>
+            <a href="#" className="hover:text-white">Sectores</a>
+            <a href="#" className="hover:text-white">Blog</a>
+          </nav>
+          <div className="flex items-center gap-5 text-white/90">
+            <a href="#" className="hover:text-white">Iniciar sesión</a>
+            <a href="#" className="hover:text-white">Anunciar</a>
           </div>
         </div>
       </header>
@@ -114,10 +89,18 @@ function Index() {
         <div className="absolute inset-0 -z-10 bg-foreground/55" />
         <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-16 text-center text-white">
           <h1 className="text-balance text-3xl font-semibold md:text-4xl">
-            Detectamos oportunidades en Google. Encuentra la tuya
+            El marketplace #1 de oportunidades SEO locales
           </h1>
 
           <div className="mx-auto mt-8 max-w-3xl rounded-md bg-white p-0 text-foreground shadow-2xl">
+            {/* Tabs */}
+            <div className="flex items-center justify-center gap-6 border-b border-border px-4 pt-3 text-sm">
+              {heroTabs.map((t, i) => (
+                <button key={t} className={`-mb-px border-b-2 pb-3 ${i === 0 ? "border-primary font-medium text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}>
+                  {t}
+                </button>
+              ))}
+            </div>
             {/* Sector chips */}
             <div className="flex items-center justify-center gap-2 px-3 pt-3 text-xs">
               {sectorChips.map(({ label, Icon }) => (
