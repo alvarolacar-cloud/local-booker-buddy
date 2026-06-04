@@ -195,6 +195,33 @@ function Index() {
         </div>
       </section>
 
+      {/* Google Maps snap */}
+      <section className="bg-muted">
+        <div className="mx-auto grid max-w-[1280px] gap-8 px-6 py-14 md:grid-cols-2 md:items-center">
+          <div className="relative overflow-hidden rounded-md border border-border shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12132.5!2d-3.7038!3d40.4168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287d4d709303%3A0xd8a0b7c05b9e9e5e!2sMadrid!5e0!3m2!1ses!2ses!4v1600000000000"
+              width="100%"
+              height="320"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Mapa de Madrid"
+            />
+          </div>
+          <div>
+            <h3 className="text-2xl font-semibold">Descubre tu oportunidad en Google</h3>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Analizamos el territorio local para encontrar los nichos con mayor demanda y menor competencia en tu zona. Madrid es solo el principio.
+            </p>
+            <a href="#" className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
+              Explorar oportunidades en Madrid <ChevronRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Featured opportunity */}
       <section className="bg-muted">
         <div className="mx-auto grid max-w-[1280px] gap-8 px-6 py-14 md:grid-cols-2 md:items-center">
