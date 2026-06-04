@@ -145,117 +145,128 @@ function Index() {
         </div>
       </header>
 
-      {/* Promo strip */}
-      <div className="bg-background px-6 pt-4">
-        <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/10 to-yellow-100/40 px-6 py-3 text-sm md:px-8">
-          <div className="flex items-center gap-3">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <span className="font-medium text-foreground">Deja de perder leads locales. Detecta nichos antes que tu competencia con el plan Pro.</span>
-          </div>
-          <a href="#" className="inline-flex shrink-0 items-center gap-1 font-semibold text-foreground underline-offset-4 hover:underline">
+      {/* Promo strip — Upwork style */}
+      <div className="bg-background px-6 pt-5">
+        <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-6 rounded-[28px] bg-[linear-gradient(90deg,#f4f3c3_0%,#e6f3c8_45%,#cfe9c3_100%)] px-8 py-5 md:px-10">
+          <h4 className="text-lg font-semibold leading-snug text-foreground md:text-xl">
+            Deja de perder leads locales. Capta los nichos del top 1% con el plan Pro.
+          </h4>
+          <a href="#" className="inline-flex shrink-0 items-center gap-1 text-base font-medium text-foreground underline underline-offset-4 hover:text-primary">
             Empezar <ChevronRight className="h-4 w-4" />
           </a>
         </div>
       </div>
 
-      {/* Hero */}
+      {/* Hero — Upwork style */}
       <section className="bg-background">
-        <div className="mx-auto max-w-[1280px] px-6 pb-6 pt-10 md:pt-16">
-          <div className="grid items-center gap-10 md:grid-cols-[1.05fr_1fr]">
-            <div>
-              <h1 className="text-[44px] font-semibold leading-[1.02] tracking-tight text-foreground md:text-[72px]">
-                Encuentra el <span className="italic text-primary">nicho local</span> que hará crecer tu negocio
+        <div className="mx-auto max-w-[1280px] px-6 pb-10 pt-12 md:pt-20">
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            {/* Left: headline + search */}
+            <div className="relative z-10">
+              <h1 className="font-serif text-[56px] font-normal leading-[0.95] tracking-[-0.02em] text-foreground md:text-[92px]">
+                Posiciona<br />a la velocidad<br />de tu ambición<span className="text-primary">.</span>
               </h1>
-              <p className="mt-6 max-w-lg text-base text-muted-foreground md:text-lg">
-                El marketplace de SEO local: descubre sectores y ciudades con tráfico real, baja competencia y CPC rentable en segundos.
+              <p className="mt-8 max-w-md text-base leading-relaxed text-foreground/80 md:text-lg">
+                Conecta con los nichos locales más rentables. Convierte oportunidades de Google en clientes reales.
               </p>
 
-              <div className="mt-10 max-w-xl rounded-2xl border border-border bg-card p-3 shadow-[0_20px_60px_-20px_rgba(20,168,0,0.25)]">
-                <div className="flex gap-1 rounded-full bg-muted/70 p-1 text-sm font-medium">
+              {/* Search card */}
+              <div className="mt-10 max-w-xl">
+                <div className="flex gap-8 border-b border-border text-base font-medium">
                   {heroTabs.map((t, i) => (
                     <button
                       key={t}
-                      className={`flex-1 rounded-full px-4 py-2 transition ${
-                        i === 0 ? "bg-card text-foreground shadow-sm ring-1 ring-border" : "text-muted-foreground hover:text-foreground"
+                      className={`relative pb-3 transition ${
+                        i === 0
+                          ? "text-foreground after:absolute after:inset-x-0 after:-bottom-px after:h-[3px] after:rounded-full after:bg-foreground"
+                          : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
                       {t}
                     </button>
                   ))}
                 </div>
-                <div className="mt-3 flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2.5 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
-                  <Search className="h-4 w-4 text-muted-foreground" />
+
+                <div className="mt-5 flex items-center gap-2 rounded-full border border-foreground/80 bg-background py-2 pl-2 pr-2">
+                  <button className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-foreground hover:bg-muted">
+                    Cualquier sector
+                    <svg className="h-4 w-4 opacity-60" viewBox="0 0 20 20" fill="currentColor"><path d="M5.5 7.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </button>
+                  <span className="h-6 w-px bg-border" />
                   <input
-                    className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
-                    placeholder="Busca un sector y ciudad (ej. dentistas Valencia)"
+                    className="flex-1 bg-transparent px-2 text-sm outline-none placeholder:text-muted-foreground"
+                    placeholder="Buscar oportunidades por ciudad o sector"
                   />
-                  <button className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
-                    Buscar
+                  <button aria-label="Buscar" className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:bg-primary/90">
+                    <Search className="h-5 w-5" />
                   </button>
                 </div>
-                <div className="mt-3 flex flex-wrap items-center gap-2 px-1 pb-1">
-                  <span className="text-xs font-medium text-muted-foreground">Populares:</span>
-                  {sectorChips.slice(0, 5).map(({ label, Icon }) => (
-                    <button
-                      key={label}
-                      className="flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-foreground/80 transition hover:border-primary hover:text-primary"
-                    >
-                      <Icon className="h-3.5 w-3.5" /> {label}
-                    </button>
-                  ))}
-                </div>
-              </div>
 
-              <div className="mt-8 flex items-center gap-6 text-xs text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-primary" /> Sin tarjeta
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-primary" /> 12.000+ profesionales
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-primary" /> Datos en tiempo real
-                </div>
+                <p className="mt-5 text-sm text-foreground/80">
+                  ¿Necesitas ayuda para encontrar el nicho perfecto?{" "}
+                  <a href="#" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">
+                    Empieza aquí
+                  </a>
+                </p>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-3xl">
-                <img src={heroCity.url} alt="Profesional local trabajando" className="h-[520px] w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
+            {/* Right: circular collage with floating cards */}
+            <div className="relative mx-auto h-[520px] w-full max-w-[560px] md:h-[600px]">
+              {/* Soft gradient blob */}
+              <div className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(20,168,0,0.18),transparent_60%),radial-gradient(circle_at_70%_70%,rgba(244,243,195,0.7),transparent_55%)]" />
+
+              {/* Main circular photo */}
+              <div className="absolute inset-x-6 top-6 bottom-6 overflow-hidden rounded-full ring-1 ring-border">
+                <img src={heroPro} alt="Profesional SEO local" className="h-full w-full object-cover" />
               </div>
 
-              {/* Floating KDI card */}
-              <div className="absolute -left-4 top-10 hidden w-60 rounded-2xl border border-border bg-card p-4 shadow-xl md:block">
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Oportunidad detectada</div>
-                <div className="mt-1 text-sm font-semibold">Dentistas · Valencia</div>
-                <div className="mt-3 flex items-end justify-between">
-                  <div>
-                    <div className="text-xs text-muted-foreground">Búsquedas/mes</div>
-                    <div className="text-xl font-bold">8.100</div>
-                  </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground">KDI</div>
-                    <div className="text-xl font-bold text-primary">28</div>
-                  </div>
+              {/* Floating: KDI badge top-left */}
+              <div className="absolute left-0 top-12 flex items-center gap-3 rounded-2xl bg-card px-4 py-3 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] ring-1 ring-border">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Sparkles className="h-4 w-4" />
+                </span>
+                <div className="text-sm">
+                  <div className="font-semibold leading-tight">Nicho detectado</div>
+                  <div className="text-xs text-muted-foreground">Dentistas · Valencia</div>
                 </div>
               </div>
 
-              {/* Floating leads card */}
-              <div className="absolute -right-4 bottom-8 hidden w-56 rounded-2xl border border-border bg-card p-4 shadow-xl md:block">
+              {/* Floating: KDI score right */}
+              <div className="absolute right-0 top-32 rounded-2xl bg-card px-4 py-3 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] ring-1 ring-border">
+                <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">KDI</div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-2xl font-bold text-foreground">28</span>
+                  <span className="text-xs font-medium text-primary">/100</span>
+                </div>
+                <div className="mt-1.5 h-1.5 w-24 overflow-hidden rounded-full bg-muted">
+                  <div className="h-full w-[28%] rounded-full bg-primary" />
+                </div>
+              </div>
+
+              {/* Floating: leads bottom-left */}
+              <div className="absolute -left-2 bottom-10 rounded-2xl bg-card p-4 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] ring-1 ring-border">
                 <div className="flex items-center gap-2 text-xs font-semibold text-primary">
                   <span className="h-2 w-2 rounded-full bg-primary" /> Leads estimados
                 </div>
-                <div className="mt-2 text-2xl font-bold">+142 / mes</div>
-                <div className="mt-3 flex items-end gap-1">
+                <div className="mt-1 text-xl font-bold">+142 / mes</div>
+                <div className="mt-2 flex items-end gap-[3px]">
                   {[30, 45, 38, 60, 55, 78, 92].map((h, i) => (
-                    <div key={i} className="w-3 rounded-t bg-primary/80" style={{ height: `${h * 0.5}px` }} />
+                    <div key={i} className="w-2 rounded-t bg-primary/80" style={{ height: `${h * 0.4}px` }} />
                   ))}
                 </div>
+              </div>
+
+              {/* Floating: rating bottom-right */}
+              <div className="absolute bottom-16 right-2 flex items-center gap-2 rounded-full bg-card px-4 py-2 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] ring-1 ring-border">
+                <span className="text-base">★</span>
+                <span className="text-sm font-semibold">4.9</span>
+                <span className="text-xs text-muted-foreground">·  12k pros</span>
               </div>
             </div>
           </div>
         </div>
+
 
 
         {/* Trust logos */}
