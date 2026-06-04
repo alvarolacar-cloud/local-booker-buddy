@@ -46,13 +46,13 @@ const trending = [
   { tag: "Talleres", city: "Murcia", searches: "1.600", kdi: 24, comp: "Hasta 2.800 búsq.", img: cityValencia },
 ];
 
-const cities = [
-  { name: "Madrid", count: "1.240 oportunidades", img: cityMadrid },
-  { name: "Barcelona", count: "980 oportunidades", img: cityBarcelona },
-  { name: "Valencia", count: "612 oportunidades", img: cityValencia },
-  { name: "Sevilla", count: "498 oportunidades", img: citySevilla },
-  { name: "Bilbao", count: "342 oportunidades", img: cityBilbao },
-  { name: "Málaga", count: "401 oportunidades", img: cityMalaga },
+const sectors = [
+  { name: "Electricistas", count: "1.240 oportunidades", img: cityMadrid },
+  { name: "Fontaneros", count: "980 oportunidades", img: cityBarcelona },
+  { name: "Dentistas", count: "612 oportunidades", img: cityValencia },
+  { name: "Abogados", count: "498 oportunidades", img: citySevilla },
+  { name: "Peluquerías", count: "342 oportunidades", img: cityBilbao },
+  { name: "Reformas", count: "401 oportunidades", img: cityMalaga },
 ];
 
 const articles = [
