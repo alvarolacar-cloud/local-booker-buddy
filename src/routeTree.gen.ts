@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OportunidadesRouteImport } from './routes/oportunidades'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OportunidadSlugRouteImport } from './routes/oportunidad.$slug'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 
 const OportunidadesRoute = OportunidadesRouteImport.update({
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OportunidadSlugRoute = OportunidadSlugRouteImport.update({
+  id: '/oportunidad/$slug',
+  path: '/oportunidad/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CategoriaSlugRoute = CategoriaSlugRouteImport.update({
   id: '/categoria/$slug',
   path: '/categoria/$slug',
@@ -33,30 +39,39 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/oportunidades': typeof OportunidadesRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
+  '/oportunidad/$slug': typeof OportunidadSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/oportunidades': typeof OportunidadesRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
+  '/oportunidad/$slug': typeof OportunidadSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/oportunidades': typeof OportunidadesRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
+  '/oportunidad/$slug': typeof OportunidadSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/oportunidades' | '/categoria/$slug'
+  fullPaths: '/' | '/oportunidades' | '/categoria/$slug' | '/oportunidad/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/oportunidades' | '/categoria/$slug'
-  id: '__root__' | '/' | '/oportunidades' | '/categoria/$slug'
+  to: '/' | '/oportunidades' | '/categoria/$slug' | '/oportunidad/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/oportunidades'
+    | '/categoria/$slug'
+    | '/oportunidad/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   OportunidadesRoute: typeof OportunidadesRoute
   CategoriaSlugRoute: typeof CategoriaSlugRoute
+  OportunidadSlugRoute: typeof OportunidadSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,6 +90,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/oportunidad/$slug': {
+      id: '/oportunidad/$slug'
+      path: '/oportunidad/$slug'
+      fullPath: '/oportunidad/$slug'
+      preLoaderRoute: typeof OportunidadSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/categoria/$slug': {
       id: '/categoria/$slug'
       path: '/categoria/$slug'
@@ -89,7 +111,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   OportunidadesRoute: OportunidadesRoute,
   CategoriaSlugRoute: CategoriaSlugRoute,
+  OportunidadSlugRoute: OportunidadSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
