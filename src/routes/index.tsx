@@ -261,21 +261,16 @@ function Index() {
 
       {/* Tools */}
       <section className="bg-muted">
-        <div className="mx-auto grid max-w-[1280px] gap-4 px-6 py-12 md:grid-cols-2">
-          {[
-            { title: "Calcula tu potencial SEO", desc: "Estima tráfico y leads para tu sector + ciudad.", cta: "Calculadora SEO", img: cityMadrid },
-            { title: "Encuentra una agencia", desc: "Conecta con agencias verificadas en tu zona.", cta: "Buscar agencia", img: cityBarcelona },
-          ].map((t) => (
-            <div key={t.title} className="relative overflow-hidden rounded-md bg-foreground text-white">
-              <img src={t.img} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-50" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="relative flex h-56 flex-col justify-end p-6">
-                <h3 className="text-lg font-semibold">{t.title}</h3>
-                <p className="mt-1 text-sm text-white/80">{t.desc}</p>
-                <button className="mt-3 w-fit rounded-md bg-white/15 px-4 py-2 text-sm font-medium backdrop-blur hover:bg-white/25">{t.cta}</button>
-              </div>
+        <div className="mx-auto max-w-[1280px] px-6 py-12">
+          <div className="relative overflow-hidden rounded-md bg-foreground text-white">
+            <img src={cityMadrid} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="relative flex h-72 flex-col items-center justify-center p-6 text-center md:h-80">
+              <h3 className="text-2xl font-semibold md:text-3xl">Calcula tu potencial SEO</h3>
+              <p className="mt-2 text-sm text-white/80 md:text-base">Estima tráfico y leads para tu sector + ciudad.</p>
+              <button className="mt-5 rounded-md bg-white/15 px-5 py-2.5 text-sm font-medium backdrop-blur hover:bg-white/25">Calculadora SEO</button>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
