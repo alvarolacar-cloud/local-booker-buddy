@@ -197,6 +197,7 @@ function CategoryPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SiteHeader />
       {/* Promo strip */}
       <div className="mx-auto max-w-[1280px] px-6 pt-6">
         <div className="flex items-center justify-between rounded-2xl bg-gradient-to-r from-[#f4f3c3] via-[#e6f3c8] to-[#cfe9c3] px-6 py-3 text-sm">
