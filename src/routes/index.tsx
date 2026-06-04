@@ -65,36 +65,12 @@ const articles = [
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Top bar */}
-      <header className="bg-[color:var(--header-bar)] text-white">
-        <div className="mx-auto flex h-12 max-w-[1280px] items-center justify-between px-6 text-sm">
-          <a href="/" className="flex items-center gap-2 font-bold tracking-tight">
-            <span className="inline-block h-5 w-5 rounded-sm bg-white" />
-            <span className="text-white">LocalSEO<span className="font-light">Booker</span></span>
-          </a>
-          <nav className="hidden items-center gap-6 text-white/90 md:flex">
-            <a href="#" className="hover:text-white">Oportunidades</a>
-            <a href="#" className="hover:text-white">Ciudades</a>
-            <a href="#" className="hover:text-white">Sectores</a>
-            <a href="#" className="hover:text-white">Blog</a>
-          </nav>
-          <div className="flex items-center gap-5 text-white/90">
-            <a href="#" className="hover:text-white">Iniciar sesión</a>
-            <a href="#" className="hover:text-white">Anunciar</a>
-          </div>
-        </div>
-      </header>
-
       {/* Hero */}
       <section className="relative isolate overflow-hidden">
         <img src={heroCity} alt="Ciudad española al atardecer" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-foreground/55" />
-        <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-16 text-center text-white">
-          <h1 className="text-balance text-3xl font-semibold md:text-4xl">
-            Oportunidades en Google para tu Empresa
-          </h1>
-
-          <div className="mx-auto mt-8 max-w-3xl rounded-md bg-white/95 p-0 text-foreground shadow-2xl backdrop-blur">
+        <div className="absolute inset-0 -z-10 bg-foreground/30" />
+        <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-32 text-center text-white">
+          <div className="mx-auto max-w-3xl rounded-md bg-white/95 p-0 text-foreground shadow-2xl backdrop-blur">
             {/* Tabs */}
             <div className="flex items-center justify-center gap-8 border-b border-border px-3 pt-4 text-sm font-medium">
               {heroTabs.map((t, i) => (
