@@ -23,6 +23,8 @@ export const Route = createFileRoute("/")({
 });
 
 
+const heroTabs = ["Oportunidades", "Análisis", "Subastas", "Agencias en venta"];
+
 
 const sectorChips = [
   { label: "Electricistas", Icon: Zap },
@@ -92,7 +94,16 @@ function Index() {
             Oportunidades en Google para tu Empresa
           </h1>
 
-          <div className="mx-auto mt-8 max-w-3xl rounded-md bg-white p-0 text-foreground shadow-2xl">
+          <div className="mx-auto mt-8 max-w-3xl rounded-md bg-white/95 p-0 text-foreground shadow-2xl backdrop-blur">
+            {/* Tabs */}
+            <div className="flex items-center justify-center gap-8 border-b border-border px-3 pt-4 text-sm font-medium">
+              {heroTabs.map((t, i) => (
+                <button key={t} className={`relative pb-3 ${i === 0 ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}>
+                  {t}
+                  {i === 0 && <span className="absolute inset-x-0 -bottom-px h-0.5 bg-primary" />}
+                </button>
+              ))}
+            </div>
             {/* Sector chips */}
             <div className="flex items-center justify-center gap-2 px-3 pt-3 text-xs">
               {sectorChips.map(({ label, Icon }) => (
