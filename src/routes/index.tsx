@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const heroTabs = ["Oportunidades", "Análisis", "Subastas", "Agencias en venta"];
+
 
 const sectorChips = [
   { label: "Electricistas", Icon: Zap },
@@ -89,18 +89,10 @@ function Index() {
         <div className="absolute inset-0 -z-10 bg-foreground/55" />
         <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-16 text-center text-white">
           <h1 className="text-balance text-3xl font-semibold md:text-4xl">
-            El marketplace #1 de oportunidades SEO locales
+            Oportunidades en Google para tu Empresa
           </h1>
 
           <div className="mx-auto mt-8 max-w-3xl rounded-md bg-white p-0 text-foreground shadow-2xl">
-            {/* Tabs */}
-            <div className="flex items-center justify-center gap-6 border-b border-border px-4 pt-3 text-sm">
-              {heroTabs.map((t, i) => (
-                <button key={t} className={`-mb-px border-b-2 pb-3 ${i === 0 ? "border-primary font-medium text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}>
-                  {t}
-                </button>
-              ))}
-            </div>
             {/* Sector chips */}
             <div className="flex items-center justify-center gap-2 px-3 pt-3 text-xs">
               {sectorChips.map(({ label, Icon }) => (
