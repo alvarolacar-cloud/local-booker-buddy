@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, Zap, Wrench, Stethoscope, Scale, Scissors, Hammer, Car, Heart, MapPin, ChevronRight, ChevronLeft } from "lucide-react";
-import heroCity from "@/assets/hero-city.jpg";
+import heroCity from "@/assets/hero-nyc.jpg.asset.json";
 import cityMadrid from "@/assets/city-madrid.jpg";
 import cityBarcelona from "@/assets/city-barcelona.jpg";
 import cityValencia from "@/assets/city-valencia.jpg";
