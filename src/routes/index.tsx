@@ -164,7 +164,7 @@ function Index() {
       {/* Trending */}
       <section className="mx-auto max-w-[1280px] px-6 py-10">
         <div className="mb-3 flex items-end justify-between">
-          <h2 className="text-xl font-semibold">Tendencias en Local SEO Booker</h2>
+          <h2 className="text-xl font-semibold">Encuentra tu Sector y Ciudad</h2>
           <a href="#" className="text-sm font-medium text-primary hover:underline">Ver todas</a>
         </div>
 
