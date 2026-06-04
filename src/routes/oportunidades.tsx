@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
-import { Search, BarChart3, Users, Rocket, Star, TrendingUp, ChevronRight, Phone } from "lucide-react";
+import { Search, BarChart3, Users, Rocket, Star, TrendingUp, ChevronRight, Phone, Wrench, Zap, Hammer, Stethoscope, Scale, Home, Scissors, Car, UtensilsCrossed, Dumbbell, Sparkles, PawPrint, GraduationCap, Camera, ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/oportunidades")({
   head: () => ({
