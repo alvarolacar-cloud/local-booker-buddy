@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const heroTabs = ["Oportunidades", "Análisis", "Subastas", "Agencias en venta"];
+
 
 const sectorChips = [
   { label: "Electricistas", Icon: Zap },
