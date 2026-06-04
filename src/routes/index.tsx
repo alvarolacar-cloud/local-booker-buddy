@@ -65,11 +65,38 @@ const articles = [
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="absolute inset-x-0 top-0 z-20">
+        <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 text-white">
+          <a href="/" className="flex items-center gap-2">
+            <span className="flex h-8 w-8 items-center justify-center rounded bg-primary text-sm font-black text-primary-foreground">L</span>
+            <span className="text-lg font-bold tracking-tight">
+              Local<span className="text-primary">SEO</span>Booker
+            </span>
+          </a>
+          <nav className="hidden items-center gap-7 text-sm font-medium md:flex">
+            <a href="#" className="hover:text-primary">Oportunidades</a>
+            <a href="#" className="hover:text-primary">Análisis</a>
+            <a href="#" className="hover:text-primary">Subastas</a>
+            <a href="#" className="hover:text-primary">Agencias en venta</a>
+            <a href="#" className="hover:text-primary">Recursos</a>
+          </nav>
+          <div className="flex items-center gap-5 text-sm font-medium">
+            <a href="#" className="hidden hover:text-primary md:inline">Iniciar sesión</a>
+            <a href="#" className="rounded-md bg-primary px-3 py-2 text-primary-foreground hover:bg-primary/90">Publicar anuncio</a>
+          </div>
+        </div>
+      </header>
+
       {/* Hero */}
       <section className="relative isolate overflow-hidden">
         <img src={heroCity} alt="Ciudad española al atardecer" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-foreground/30" />
-        <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-32 text-center text-white">
+        <div className="absolute inset-0 -z-10 bg-foreground/40" />
+        <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-36 text-center text-white">
+          <h1 className="mx-auto mb-6 max-w-3xl text-4xl font-bold leading-tight drop-shadow-lg md:text-5xl">
+            Oportunidades en Google para tu Empresa
+          </h1>
+
           <div className="mx-auto max-w-3xl rounded-md bg-white/95 p-0 text-foreground shadow-2xl backdrop-blur">
             {/* Tabs */}
             <div className="flex items-center justify-center gap-8 border-b border-border px-3 pt-4 text-sm font-medium">
