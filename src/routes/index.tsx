@@ -225,7 +225,7 @@ function Index() {
 
       {/* Popular cities */}
       <section className="mx-auto max-w-[1280px] px-6 py-14">
-        <h2 className="text-xl font-semibold">Explora ciudades populares</h2>
+        <h2 className="text-xl font-semibold">Explora oportunidades en tu sector</h2>
         <div className="mt-2 flex gap-6 border-b border-border text-sm">
           <button className="-mb-px border-b-2 border-primary pb-2 font-medium text-primary">Ciudades ES</button>
           <button className="-mb-px border-b-2 border-transparent pb-2 text-muted-foreground hover:text-foreground">Ciudades LATAM</button>
