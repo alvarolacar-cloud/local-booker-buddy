@@ -89,7 +89,7 @@ function Index() {
         <div className="absolute inset-0 -z-10 bg-foreground/55" />
         <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-16 text-center text-white">
           <h1 className="text-balance text-3xl font-semibold md:text-4xl">
-            El marketplace #1 de oportunidades SEO locales
+            Detectamos oportunidades en Google. Encuentra la tuya
           </h1>
 
           <div className="mx-auto mt-8 max-w-3xl rounded-md bg-white p-0 text-foreground shadow-2xl">
