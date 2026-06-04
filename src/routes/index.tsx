@@ -74,13 +74,6 @@ function Index() {
               Local<span className="text-primary">SEO</span>Booker
             </span>
           </a>
-          <nav className="hidden items-center gap-7 text-sm font-medium md:flex">
-            <a href="#" className="hover:text-primary">Oportunidades</a>
-            <a href="#" className="hover:text-primary">Análisis</a>
-            <a href="#" className="hover:text-primary">Subastas</a>
-            <a href="#" className="hover:text-primary">Agencias en venta</a>
-            <a href="#" className="hover:text-primary">Recursos</a>
-          </nav>
           <div className="flex items-center gap-5 text-sm font-medium">
             <a href="#" className="hidden hover:text-primary md:inline">Iniciar sesión</a>
             <a href="#" className="rounded-md bg-primary px-3 py-2 text-primary-foreground hover:bg-primary/90">Publicar anuncio</a>
