@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import heroPro from "@/assets/hero-pro.jpg";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/categoria/$slug")({
   head: ({ params }) => {
