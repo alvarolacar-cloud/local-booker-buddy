@@ -147,223 +147,199 @@ function Index() {
 
       {/* Promo strip — Upwork style */}
       <div className="bg-background px-6 pt-5">
-        <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-6 rounded-[28px] bg-[linear-gradient(90deg,#f4f3c3_0%,#e6f3c8_45%,#cfe9c3_100%)] px-8 py-5 md:px-10">
-          <h4 className="text-lg font-semibold leading-snug text-foreground md:text-xl">
+        <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-6 rounded-[28px] bg-[linear-gradient(90deg,#f4f3c3_0%,#e6f3c8_45%,#cfe9c3_100%)] px-8 py-4 md:px-10">
+          <h4 className="text-base font-medium leading-snug text-foreground md:text-[17px]">
             Deja de perder leads locales. Capta los nichos del top 1% con el plan Pro.
           </h4>
-          <a href="#" className="inline-flex shrink-0 items-center gap-1 text-base font-medium text-foreground underline underline-offset-4 hover:text-primary">
+          <a href="#" className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-foreground underline underline-offset-4 hover:text-primary">
             Empezar <ChevronRight className="h-4 w-4" />
           </a>
         </div>
       </div>
 
-      {/* Hero — Upwork style */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-[1280px] px-6 pb-10 pt-12 md:pt-20">
-          <div className="grid items-center gap-12 md:grid-cols-2">
-            {/* Left: headline + search */}
-            <div className="relative z-10">
-              <h1 className="font-serif text-[56px] font-normal leading-[0.95] tracking-[-0.02em] text-foreground md:text-[92px]">
-                Posiciona<br />a la velocidad<br />de tu ambición<span className="text-primary">.</span>
+      {/* Hero — Upwork dark image card */}
+      <section className="bg-background px-6 pt-6">
+        <div className="mx-auto max-w-[1280px]">
+          <div className="relative overflow-hidden rounded-3xl bg-foreground">
+            <img src={heroPro} alt="Profesional SEO" className="absolute inset-0 h-full w-full object-cover object-[70%_center]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/55 to-transparent" />
+            <div className="relative px-8 py-14 text-white md:px-14 md:py-20">
+              <h1 className="max-w-2xl text-[44px] font-bold leading-[1.05] tracking-tight md:text-[64px]">
+                Posiciona a la velocidad<br />de tu ambición
               </h1>
-              <p className="mt-8 max-w-md text-base leading-relaxed text-foreground/80 md:text-lg">
-                Conecta con los nichos locales más rentables. Convierte oportunidades de Google en clientes reales.
+              <p className="mt-5 max-w-md text-base text-white/85 md:text-lg">
+                Capta clientes que ya te buscan en Google. Detecta los nichos locales más rentables y conviértelos en leads reales.
               </p>
 
-              {/* Search card */}
-              <div className="mt-10 max-w-xl">
-                <div className="flex gap-8 border-b border-border text-base font-medium">
-                  {heroTabs.map((t, i) => (
+              <div className="mt-8 max-w-xl">
+                <div className="flex gap-1 rounded-full bg-white/10 p-1 text-sm font-medium backdrop-blur-sm">
+                  {["Soy empresa", "Soy agencia"].map((t, i) => (
                     <button
                       key={t}
-                      className={`relative pb-3 transition ${
-                        i === 0
-                          ? "text-foreground after:absolute after:inset-x-0 after:-bottom-px after:h-[3px] after:rounded-full after:bg-foreground"
-                          : "text-muted-foreground hover:text-foreground"
+                      className={`flex-1 rounded-full px-5 py-2 transition ${
+                        i === 0 ? "bg-white text-foreground shadow-sm" : "text-white/85 hover:text-white"
                       }`}
                     >
                       {t}
                     </button>
                   ))}
                 </div>
-
-                <div className="mt-5 flex items-center gap-2 rounded-full border border-foreground/80 bg-background py-2 pl-2 pr-2">
-                  <button className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-foreground hover:bg-muted">
-                    Cualquier sector
-                    <svg className="h-4 w-4 opacity-60" viewBox="0 0 20 20" fill="currentColor"><path d="M5.5 7.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </button>
-                  <span className="h-6 w-px bg-border" />
+                <div className="mt-3 flex items-center gap-2 rounded-full bg-white py-1.5 pl-5 pr-1.5 shadow-xl">
                   <input
-                    className="flex-1 bg-transparent px-2 text-sm outline-none placeholder:text-muted-foreground"
-                    placeholder="Buscar oportunidades por ciudad o sector"
+                    className="flex-1 bg-transparent py-2 text-sm text-foreground outline-none placeholder:text-muted-foreground"
+                    placeholder="Busca un sector o ciudad (ej. dentistas Valencia)"
                   />
-                  <button aria-label="Buscar" className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:bg-primary/90">
-                    <Search className="h-5 w-5" />
+                  <button className="flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+                    <Search className="h-4 w-4" /> Buscar
                   </button>
                 </div>
-
-                <p className="mt-5 text-sm text-foreground/80">
-                  ¿Necesitas ayuda para encontrar el nicho perfecto?{" "}
-                  <a href="#" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">
-                    Empieza aquí
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            {/* Right: circular collage with floating cards */}
-            <div className="relative mx-auto h-[520px] w-full max-w-[560px] md:h-[600px]">
-              {/* Soft gradient blob */}
-              <div className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(20,168,0,0.18),transparent_60%),radial-gradient(circle_at_70%_70%,rgba(244,243,195,0.7),transparent_55%)]" />
-
-              {/* Main circular photo */}
-              <div className="absolute inset-x-6 top-6 bottom-6 overflow-hidden rounded-full ring-1 ring-border">
-                <img src={heroPro} alt="Profesional SEO local" className="h-full w-full object-cover" />
-              </div>
-
-              {/* Floating: KDI badge top-left */}
-              <div className="absolute left-0 top-12 flex items-center gap-3 rounded-2xl bg-card px-4 py-3 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] ring-1 ring-border">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Sparkles className="h-4 w-4" />
-                </span>
-                <div className="text-sm">
-                  <div className="font-semibold leading-tight">Nicho detectado</div>
-                  <div className="text-xs text-muted-foreground">Dentistas · Valencia</div>
-                </div>
-              </div>
-
-              {/* Floating: KDI score right */}
-              <div className="absolute right-0 top-32 rounded-2xl bg-card px-4 py-3 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] ring-1 ring-border">
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">KDI</div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-bold text-foreground">28</span>
-                  <span className="text-xs font-medium text-primary">/100</span>
-                </div>
-                <div className="mt-1.5 h-1.5 w-24 overflow-hidden rounded-full bg-muted">
-                  <div className="h-full w-[28%] rounded-full bg-primary" />
-                </div>
-              </div>
-
-              {/* Floating: leads bottom-left */}
-              <div className="absolute -left-2 bottom-10 rounded-2xl bg-card p-4 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] ring-1 ring-border">
-                <div className="flex items-center gap-2 text-xs font-semibold text-primary">
-                  <span className="h-2 w-2 rounded-full bg-primary" /> Leads estimados
-                </div>
-                <div className="mt-1 text-xl font-bold">+142 / mes</div>
-                <div className="mt-2 flex items-end gap-[3px]">
-                  {[30, 45, 38, 60, 55, 78, 92].map((h, i) => (
-                    <div key={i} className="w-2 rounded-t bg-primary/80" style={{ height: `${h * 0.4}px` }} />
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {sectorChips.slice(0, 4).map(({ label }) => (
+                    <button
+                      key={label}
+                      className="flex items-center gap-1.5 rounded-full border border-white/30 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm transition hover:border-white hover:bg-white/15"
+                    >
+                      {label}
+                      <svg className="h-3 w-3 opacity-60" viewBox="0 0 20 20" fill="none"><path d="M5.5 7.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </button>
                   ))}
                 </div>
               </div>
-
-              {/* Floating: rating bottom-right */}
-              <div className="absolute bottom-16 right-2 flex items-center gap-2 rounded-full bg-card px-4 py-2 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] ring-1 ring-border">
-                <span className="text-base">★</span>
-                <span className="text-sm font-semibold">4.9</span>
-                <span className="text-xs text-muted-foreground">·  12k pros</span>
-              </div>
             </div>
           </div>
-        </div>
 
-
-
-        {/* Trust logos */}
-        <div className="mx-auto max-w-[1280px] px-6 pb-10">
-          <p className="text-center text-xs uppercase tracking-wider text-muted-foreground">Confían en nosotros más de 12.000 profesionales</p>
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-base font-semibold text-muted-foreground/70">
-            <span className="text-primary">Inboundcycle</span>
-            <span className="italic">SEMrush</span>
-            <span>Webpositer</span>
-            <span className="text-primary">Aukera</span>
-            <span>Human Level</span>
-            <span>Internet República</span>
+          <div className="py-12">
+            <p className="text-center text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">Confían en nosotros más de 12.000 profesionales</p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-12 gap-y-3 text-lg font-semibold text-foreground/40">
+              <span className="text-primary">Inboundcycle</span>
+              <span className="italic">SEMrush</span>
+              <span>Webpositer</span>
+              <span className="text-primary">Aukera</span>
+              <span>Human Level</span>
+              <span>Internet República</span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Sector grid */}
-      <section className="mx-auto max-w-[1280px] px-6 py-14">
-        <h2 className="text-2xl font-semibold">Encuentra oportunidades para cada sector</h2>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      <section className="mx-auto max-w-[1280px] px-6 py-10">
+        <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Encuentra oportunidades para cada sector</h2>
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {sectorGrid.map(({ name, Icon }) => (
-            <a key={name} href="#" className="group flex items-start gap-3 rounded-xl border border-border bg-card p-4 transition hover:border-primary hover:shadow-md">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <a key={name} href="#" className="group flex flex-col gap-6 rounded-xl border border-border bg-card p-5 transition hover:border-primary hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/30 bg-primary/5 text-primary">
                 <Icon className="h-5 w-5" />
               </span>
-              <span className="text-sm font-semibold leading-snug group-hover:text-primary">{name}</span>
+              <span className="text-[15px] font-semibold leading-snug group-hover:text-primary">{name}</span>
             </a>
           ))}
         </div>
       </section>
 
       {/* How it works */}
-      <section className="bg-muted">
-        <div className="mx-auto max-w-[1280px] px-6 py-14">
-          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-            <h2 className="text-2xl font-semibold">Cómo funciona</h2>
-            <div className="flex gap-1 rounded-full border border-border bg-card p-1 text-sm font-medium">
-              <button
-                onClick={() => setHowMode("empresas")}
-                className={`rounded-full px-4 py-1.5 ${howMode === "empresas" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
-              >
-                Para empresas
-              </button>
-              <button
-                onClick={() => setHowMode("agencias")}
-                className={`rounded-full px-4 py-1.5 ${howMode === "agencias" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
-              >
-                Para agencias
-              </button>
-            </div>
+      <section className="mx-auto max-w-[1280px] px-6 py-14">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+          <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Cómo funciona</h2>
+          <div className="flex gap-1 rounded-full border border-border bg-card p-1 text-sm font-medium">
+            <button
+              onClick={() => setHowMode("empresas")}
+              className={`rounded-full px-5 py-1.5 transition ${howMode === "empresas" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
+            >
+              Para empresas
+            </button>
+            <button
+              onClick={() => setHowMode("agencias")}
+              className={`rounded-full px-5 py-1.5 transition ${howMode === "agencias" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
+            >
+              Para agencias
+            </button>
           </div>
+        </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {howSteps.map((s, i) => (
-              <div key={s.title} className={`rounded-2xl p-6 ${s.featured ? "bg-gradient-to-br from-primary/30 to-primary/10 ring-1 ring-primary/30" : "bg-card border border-border"}`}>
-                <div className="flex h-32 items-center justify-center rounded-xl bg-background/60 text-3xl font-black text-primary">
-                  0{i + 1}
-                </div>
-                <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                {s.cta && (
-                  <button className="mt-4 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
-                    {s.cta}
-                  </button>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {howSteps.map((s, i) => (
+            <div key={s.title} className="flex flex-col">
+              <div className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${i === 0 ? "bg-[linear-gradient(135deg,#e6f3c8_0%,#a8e063_55%,#56ab2f_100%)]" : ""}`}>
+                {i === 0 ? (
+                  <div className="flex h-full flex-col justify-between p-7">
+                    <div className="flex items-center gap-2 text-foreground">
+                      <span className="flex h-8 w-8 items-center justify-center rounded bg-foreground text-sm font-black text-primary">L</span>
+                      <span className="text-lg font-bold tracking-tight">LocalSEOBooker</span>
+                    </div>
+                    <button className="self-start rounded-full bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm hover:bg-background/90">
+                      Empezar ahora
+                    </button>
+                  </div>
+                ) : (
+                  <img
+                    src={i === 1 ? featuredMadrid : cityBarcelona}
+                    alt={s.title}
+                    className="h-full w-full object-cover"
+                  />
                 )}
               </div>
-            ))}
-          </div>
+              <h3 className="mt-5 text-[19px] font-semibold">{s.title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{s.desc}</p>
+              {i === 0 && s.cta && (
+                <button className="mt-4 self-start rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+                  {s.cta}
+                </button>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Calculator dark card */}
-      <section className="mx-auto max-w-[1280px] px-6 py-14">
-        <div className="relative overflow-hidden rounded-2xl bg-foreground text-white">
-          <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.35),transparent_60%)]" />
-          <div className="relative grid gap-8 p-8 md:grid-cols-2 md:items-center md:p-12">
+      <section className="mx-auto max-w-[1280px] px-6 py-10">
+        <div className="relative overflow-hidden rounded-3xl bg-foreground text-white">
+          <div className="grid gap-10 p-8 md:grid-cols-2 md:items-center md:p-14">
             <div>
-              <h3 className="text-3xl font-semibold">Calcula tu potencial SEO local</h3>
-              <p className="mt-3 text-sm text-white/75">
-                Estima tráfico, leads e ingresos para tu sector + ciudad. Datos reales en menos de 30 segundos.
+              <h3 className="text-[32px] font-semibold leading-tight tracking-tight md:text-[40px]">
+                Calcula tu potencial<br />SEO local
+              </h3>
+              <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/70">
+                Estimamos el tráfico, leads e ingresos potenciales según el sector y la ciudad que elijas.
               </p>
-              <div className="mt-6 flex items-center gap-2 rounded-full bg-white p-1.5 text-foreground">
+              <div className="mt-7 flex items-center gap-2 rounded-full bg-white p-1.5 text-foreground shadow-lg">
                 <input
-                  className="flex-1 bg-transparent px-3 text-sm outline-none placeholder:text-muted-foreground"
-                  placeholder="Ej. dentistas Valencia"
+                  className="flex-1 bg-transparent px-4 text-sm outline-none placeholder:text-muted-foreground"
+                  placeholder="Qué sector estás considerando, ej. dentistas"
                 />
-                <button className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
-                  Calcular
+                <button className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+                  Siguiente
                 </button>
               </div>
             </div>
-            <div className="relative h-56 rounded-xl border border-white/10 bg-foreground/40 p-4">
-              <div className="absolute inset-x-6 top-6 text-xs uppercase tracking-wider text-white/60">Estimación de leads/mes</div>
-              <div className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-3">
-                {[40, 90, 65, 120, 80, 150, 110].map((h, idx) => (
-                  <div key={idx} className="w-full rounded-t bg-gradient-to-t from-primary to-primary/40" style={{ height: `${h}px` }} />
-                ))}
+
+            <div className="relative flex items-center justify-center">
+              <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_center,rgba(20,168,0,0.45),transparent_60%)]" />
+              <div className="relative w-full max-w-sm rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <div className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-white/70">Estimación de leads/mes</div>
+                <svg viewBox="0 0 320 140" className="mt-4 w-full">
+                  <defs>
+                    <linearGradient id="curveFill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stopColor="#56ab2f" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#56ab2f" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M10,110 C70,110 90,40 160,40 C230,40 250,110 310,110 L310,130 L10,130 Z" fill="url(#curveFill)" />
+                  <path d="M10,110 C70,110 90,40 160,40 C230,40 250,110 310,110" stroke="#a8e063" strokeWidth="2" fill="none" />
+                  <circle cx="60" cy="100" r="4" fill="#a8e063" />
+                  <circle cx="160" cy="40" r="5" fill="#fff" stroke="#56ab2f" strokeWidth="2" />
+                  <circle cx="260" cy="100" r="4" fill="#a8e063" />
+                </svg>
+                <div className="mt-2 flex justify-between text-[11px] font-medium text-white/70">
+                  <span>Bajo</span>
+                  <span className="text-white">Típico</span>
+                  <span>Premium</span>
+                </div>
+                <div className="mt-4 flex justify-between text-sm font-semibold">
+                  <span>30/mes</span>
+                  <span className="text-primary">142/mes</span>
+                  <span>320/mes</span>
+                </div>
               </div>
             </div>
           </div>
@@ -371,83 +347,108 @@ function Index() {
       </section>
 
       {/* Plans */}
-      <section className="bg-muted">
+      <section className="bg-background">
         <div className="mx-auto max-w-[1280px] px-6 py-14">
           <div className="text-center">
-            <h2 className="text-2xl font-semibold">Elige cómo quieres trabajar</h2>
+            <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Elige cómo quieres trabajar</h2>
             <p className="mt-2 text-sm text-muted-foreground">Planes flexibles para autónomos, empresas y agencias.</p>
           </div>
-          <div className="mx-auto mt-8 grid max-w-3xl gap-5 md:grid-cols-2">
+          <div className="mx-auto mt-10 grid max-w-3xl gap-5 md:grid-cols-2">
             {plans.map((p) => (
-              <div key={p.name} className={`relative rounded-2xl bg-card p-6 shadow-sm ${p.featured ? "ring-2 ring-primary" : "border border-border"}`}>
+              <div key={p.name} className={`relative rounded-2xl bg-card p-7 ${p.featured ? "border-2 border-primary shadow-[0_18px_50px_-20px_rgba(20,168,0,0.35)]" : "border border-border"}`}>
                 {p.featured && (
-                  <span className="absolute right-4 top-4 rounded-full bg-primary px-2 py-0.5 text-[11px] font-semibold text-primary-foreground">POPULAR</span>
+                  <span className="absolute right-5 top-5 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">Popular</span>
                 )}
-                <h3 className="text-lg font-semibold">{p.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
-                <ul className="mt-5 space-y-2 text-sm">
-                  {p.items.map((it) => (
-                    <li key={it} className="flex items-start gap-2">
+                <h3 className="text-xl font-bold">{p.name}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{p.desc}</p>
+                <div className="my-5 h-px bg-border" />
+                <p className="text-sm font-semibold">{p.name === "Free" ? "Incluye:" : "Todo lo de Free, más:"}</p>
+                <ul className="mt-3 space-y-2.5 text-sm">
+                  {p.items.filter((it) => !it.startsWith("Todo lo")).map((it) => (
+                    <li key={it} className="flex items-start gap-2.5">
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <span>{it}</span>
+                      <span className="leading-snug">{it}</span>
                     </li>
                   ))}
                 </ul>
-                <button className={`mt-6 w-full rounded-full px-4 py-2.5 text-sm font-medium ${p.featured ? "bg-primary text-primary-foreground hover:bg-primary/90" : "border border-foreground/30 hover:bg-muted"}`}>
+                <button className={`mt-7 w-full rounded-full px-4 py-3 text-sm font-semibold transition ${p.featured ? "bg-primary text-primary-foreground hover:bg-primary/90" : "border border-foreground/80 hover:bg-muted"}`}>
                   {p.cta}
                 </button>
               </div>
             ))}
           </div>
-          <p className="mt-4 text-center text-xs text-primary"><a href="#" className="hover:underline">Comparar todos los planes →</a></p>
+          <p className="mt-5 text-center text-sm"><a href="#" className="text-primary underline underline-offset-4 hover:text-primary/80">Comparar todos los planes →</a></p>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="mx-auto max-w-[1280px] px-6 py-14">
-        <h2 className="text-2xl font-semibold">Resultados reales con Local SEO Booker</h2>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <div key={t.author} className="rounded-2xl border border-border bg-card p-5">
-              <p className="text-sm leading-relaxed">"{t.quote}"</p>
-              <div className="mt-4 flex items-center gap-3 border-t border-border pt-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-sm font-semibold text-primary">
-                  {t.author.charAt(0)}
-                </span>
-                <div>
-                  <div className="text-sm font-semibold">{t.author}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
+      {/* Testimonials with green wave */}
+      <section className="relative overflow-hidden bg-background py-16">
+        <svg className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 opacity-80" width="240" height="500" viewBox="0 0 240 500" fill="none">
+          <path d="M-40,40 C120,120 -20,240 120,320 C260,400 60,440 -40,500 L-40,40 Z" fill="#a8e063" fillOpacity="0.35" />
+          <path d="M-60,80 C100,160 -40,280 100,360 C240,440 40,480 -60,540 L-60,80 Z" fill="#56ab2f" fillOpacity="0.25" />
+        </svg>
+        <svg className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 rotate-180 opacity-80" width="240" height="500" viewBox="0 0 240 500" fill="none">
+          <path d="M-40,40 C120,120 -20,240 120,320 C260,400 60,440 -40,500 L-40,40 Z" fill="#a8e063" fillOpacity="0.35" />
+          <path d="M-60,80 C100,160 -40,280 100,360 C240,440 40,480 -60,540 L-60,80 Z" fill="#56ab2f" fillOpacity="0.25" />
+        </svg>
+        <div className="relative mx-auto max-w-[1280px] px-6">
+          <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Resultados reales con Local SEO Booker</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <div key={t.author} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                <p className="text-[15px] leading-relaxed text-foreground/90">"{t.quote}"</p>
+                <div className="mt-5 flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-sm font-bold text-primary">
+                    {t.author.charAt(0)}
+                  </span>
+                  <div>
+                    <div className="text-sm font-bold">{t.author}</div>
+                    <div className="text-xs text-muted-foreground">{t.role}</div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Badges */}
-      <section className="bg-muted">
-        <div className="mx-auto max-w-[1280px] px-6 py-12 text-center">
-          <h2 className="text-xl font-semibold">Reconocidos en el sector SEO local</h2>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-            {badges.map((b) => (
-              <div key={b} className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-medium">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">★</span>
-                {b}
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Badges ribbon */}
+      <section className="bg-background py-14">
+        <div className="mx-auto max-w-[1280px] px-6 text-center">
+          <h2 className="text-[24px] font-semibold tracking-tight md:text-[28px]">Reconocidos por agencias y autónomos</h2>
+          <div className="mt-10 flex flex-wrap items-end justify-center gap-6">
+            {badges.map((b, idx) => {
+              const accents = ["#1e3a8a", "#0891b2", "#0d9488", "#ea580c", "#a16207", "#15803d"];
+              const c = accents[idx % accents.length];
+              return (
+                <div key={b} className="relative flex w-24 flex-col items-center">
+                  <div className="relative flex h-32 w-24 flex-col items-center justify-start rounded-t-[14px] bg-card pt-5 shadow-md ring-1 ring-border">
+                    <div className="absolute inset-x-0 top-0 h-2 rounded-t-[14px]" style={{ backgroundColor: c }} />
+                    <span className="text-[9px] font-bold uppercase tracking-wider" style={{ color: c }}>Top 2026</span>
+                    <span className="mt-1.5 flex h-10 w-10 items-center justify-center rounded-full text-lg font-black text-white" style={{ backgroundColor: c }}>★</span>
+                    <span className="mt-1 px-1.5 text-center text-[10px] font-bold leading-tight text-foreground">{b}</span>
+                  </div>
+                  <div className="flex w-24 justify-between">
+                    <div className="h-5 w-[46%] origin-top-right -skew-x-[20deg]" style={{ backgroundColor: c }} />
+                    <div className="h-5 w-[46%] origin-top-left skew-x-[20deg]" style={{ backgroundColor: c }} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Green CTA strip */}
-      <section className="mx-auto max-w-[1280px] px-6 py-12">
-        <div className="flex flex-col items-center justify-between gap-4 rounded-2xl bg-primary px-8 py-10 text-center text-primary-foreground md:flex-row md:text-left">
-          <h3 className="text-xl font-semibold md:text-2xl">Encuentra el nicho local que hará crecer tu negocio</h3>
-          <a href="#" className="inline-flex items-center gap-1 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-foreground hover:bg-white/90">
-            Explorar oportunidades <ChevronRight className="h-4 w-4" />
+      <section className="px-6 py-10">
+        <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-center gap-5 rounded-2xl bg-primary px-8 py-14 text-center text-primary-foreground">
+          <h3 className="text-2xl font-bold md:text-[32px]">Encuentra el nicho local que hará crecer tu negocio</h3>
+          <a href="#" className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-bold text-foreground hover:bg-white/90">
+            Explorar oportunidades
           </a>
         </div>
       </section>
+
 
       {/* Footer */}
       <footer className="bg-foreground text-white">
