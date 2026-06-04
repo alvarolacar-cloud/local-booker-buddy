@@ -90,7 +90,7 @@ function Index() {
 
       {/* Hero */}
       <section className="relative isolate overflow-hidden">
-        <img src={heroCity} alt="Ciudad española al atardecer" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <img src={heroCity.url} alt="Skyline de Nueva York" className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-foreground/40" />
         <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-36 text-center text-white">
           <h1 className="mx-auto mb-6 max-w-3xl text-4xl font-bold leading-tight drop-shadow-lg md:text-5xl">
