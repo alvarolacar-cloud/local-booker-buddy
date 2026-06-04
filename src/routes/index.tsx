@@ -93,14 +93,6 @@ function Index() {
           </h1>
 
           <div className="mx-auto mt-8 max-w-3xl rounded-md bg-white p-0 text-foreground shadow-2xl">
-            {/* Tabs */}
-            <div className="flex items-center justify-center gap-6 border-b border-border px-4 pt-3 text-sm">
-              {heroTabs.map((t, i) => (
-                <button key={t} className={`-mb-px border-b-2 pb-3 ${i === 0 ? "border-primary font-medium text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}>
-                  {t}
-                </button>
-              ))}
-            </div>
             {/* Sector chips */}
             <div className="flex items-center justify-center gap-2 px-3 pt-3 text-xs">
               {sectorChips.map(({ label, Icon }) => (
