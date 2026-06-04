@@ -228,13 +228,13 @@ function Index() {
       <section className="mx-auto max-w-[1280px] px-6 py-10">
         <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Encuentra oportunidades para cada sector</h2>
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {sectorGrid.map(({ name, Icon }) => (
-            <a key={name} href="#" className="group flex flex-col gap-6 rounded-xl border border-border bg-card p-5 transition hover:border-primary hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
+          {sectorGrid.map(({ name, slug, Icon }) => (
+            <Link key={name} to="/categoria/$slug" params={{ slug }} className="group flex flex-col gap-6 rounded-xl border border-border bg-card p-5 transition hover:border-primary hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
               <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/30 bg-primary/5 text-primary">
                 <Icon className="h-5 w-5" />
               </span>
               <span className="text-[15px] font-semibold leading-snug group-hover:text-primary">{name}</span>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
