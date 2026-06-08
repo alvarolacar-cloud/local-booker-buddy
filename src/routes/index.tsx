@@ -1,456 +1,236 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
-import {
-  Search,
-  Zap,
-  Wrench,
-  Stethoscope,
-  Scale,
-  Scissors,
-  Hammer,
-  Car,
-  Heart,
-  Briefcase,
-  Building2,
-  PawPrint,
-  Check,
-  ChevronRight,
-  Sparkles,
-} from "lucide-react";
-import { useState } from "react";
-import heroPro from "@/assets/hero-pro.jpg";
+import { MapPin, Users, Search, BarChart3, Target, ChevronDown, ArrowRight, FileText } from "lucide-react";
 import cityMadrid from "@/assets/city-madrid.jpg";
 import cityBarcelona from "@/assets/city-barcelona.jpg";
 import cityValencia from "@/assets/city-valencia.jpg";
 import citySevilla from "@/assets/city-sevilla.jpg";
-import cityBilbao from "@/assets/city-bilbao.jpg";
 import cityMalaga from "@/assets/city-malaga.jpg";
-import featuredMadrid from "@/assets/featured-madrid.jpg";
+import sFontaneria from "@/assets/sector-fontaneria.jpg";
+import sDentistas from "@/assets/sector-dentistas.jpg";
+import sReformas from "@/assets/sector-reformas.jpg";
+import sElectricistas from "@/assets/sector-electricistas.jpg";
+import sRestauracion from "@/assets/sector-restauracion.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Local SEO Booker — Marketplace de oportunidades SEO locales en España" },
-      { name: "description", content: "El marketplace líder de oportunidades SEO locales por sector y ciudad en España. Descubre nichos rentables en segundos." },
-      { property: "og:title", content: "Local SEO Booker" },
-      { property: "og:description", content: "Marketplace de oportunidades SEO locales por sector y ciudad." },
+      { title: "LíderesMaps — Qué hacen los negocios que aparecen primero en Google Maps" },
+      { name: "description", content: "Descubre qué funciona en tu sector y en tu ciudad. Análisis de los líderes en Google Maps por sector y ciudad en España." },
+      { property: "og:title", content: "LíderesMaps" },
+      { property: "og:description", content: "Descubre qué hacen los negocios que lideran Google Maps en tu sector y ciudad." },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });
 
-const heroTabs = ["Inicio", "Oportunidades", "Todos los Sectores"];
-
-const sectorChips = [
-  { label: "Electricistas", slug: "electricistas", Icon: Zap },
-  { label: "Fontaneros", slug: "fontaneros", Icon: Wrench },
-  { label: "Dentistas", slug: "dentistas", Icon: Stethoscope },
-  { label: "Abogados", slug: "abogados", Icon: Scale },
-  { label: "Peluquerías", slug: "peluquerias", Icon: Scissors },
-  { label: "Reformas", slug: "reformas", Icon: Hammer },
+const features = [
+  { Icon: Search, title: "Analizamos a los líderes", desc: "Identificamos los negocios mejor posicionados para tu búsqueda.", color: "bg-[oklch(0.55_0.22_260)]" },
+  { Icon: Target, title: "Extraemos sus estrategias", desc: "Reseñas, backlinks, servicios, categorías y señales SEO.", color: "bg-[oklch(0.65_0.18_150)]" },
+  { Icon: BarChart3, title: "Detectamos oportunidades", desc: "Comparamos las estrategias de los líderes con las tuyas.", color: "bg-[oklch(0.55_0.2_300)]" },
+  { Icon: Target, title: "Creamos un plan de acción", desc: "Te mostramos qué implementar primero para competir.", color: "bg-[oklch(0.7_0.18_45)]" },
 ];
 
-const sectorGrid = [
-  { name: "Electricistas", slug: "electricistas", Icon: Zap },
-  { name: "Fontaneros", slug: "fontaneros", Icon: Wrench },
-  { name: "Dentistas", slug: "dentistas", Icon: Stethoscope },
-  { name: "Abogados", slug: "abogados", Icon: Scale },
-  { name: "Peluquerías", slug: "peluquerias", Icon: Scissors },
-  { name: "Reformas", slug: "reformas", Icon: Hammer },
-  { name: "Cerrajeros", slug: "cerrajeros", Icon: Briefcase },
-  { name: "Talleres", slug: "talleres", Icon: Car },
-  { name: "Veterinarios", slug: "veterinarios", Icon: PawPrint },
-  { name: "Asesorías", slug: "asesorias", Icon: Building2 },
+const sectors = [
+  { name: "Fontanería", count: 15, img: sFontaneria, slug: "fontaneros" },
+  { name: "Dentistas", count: 12, img: sDentistas, slug: "dentistas" },
+  { name: "Reformas", count: 14, img: sReformas, slug: "reformas" },
+  { name: "Electricistas", count: 14, img: sElectricistas, slug: "electricistas" },
+  { name: "Restauración", count: 11, img: sRestauracion, slug: "restauracion" },
 ];
 
-const howStepsCompanies = [
-  { title: "Publicar es siempre gratis", desc: "Crea tu búsqueda en segundos y empieza a ver oportunidades locales sin coste.", cta: "Crear búsqueda", featured: true },
-  { title: "Analiza nichos y competencia", desc: "Recibe oportunidades con volumen, KDI y CPC estimado por sector y ciudad." },
-  { title: "Convierte el tráfico en clientes", desc: "Activa alertas y aparece antes en Google Maps y en el pack local." },
+const cities = [
+  { name: "Madrid", count: 48, img: cityMadrid },
+  { name: "Barcelona", count: 37, img: cityBarcelona },
+  { name: "Valencia", count: 28, img: cityValencia },
+  { name: "Sevilla", count: 24, img: citySevilla },
+  { name: "Málaga", count: 24, img: cityMalaga },
 ];
 
-const howStepsAgencies = [
-  { title: "Encuentra clientes con potencial", desc: "Detecta autónomos y pymes en sectores rentables sin posicionar.", cta: "Explorar leads", featured: true },
-  { title: "Presenta informes en minutos", desc: "Exporta CSV con datos de búsqueda, competencia y oportunidades." },
-  { title: "Escala tu cartera local", desc: "Centraliza todos tus nichos y ciudades en un único marketplace." },
+const cases = [
+  { title: "Fontaneros en Madrid", desc: "Cómo alcanzaron el Top 3 en Google Maps.", rating: "4,8", reviews: 260, img: sFontaneria, wide: true },
+  { title: "Clínicas Dentales en Barcelona", desc: "Cómo generan más pacientes con su ficha de Google Maps.", rating: "4,8", reviews: 198, img: sDentistas, wide: true },
+  { title: "Reformas en Valencia", desc: "Estrategias que les han llevado al Top 3.", rating: "4,7", reviews: 194, img: sReformas },
+  { title: "Electricistas en Sevilla", desc: "Así consiguen más llamadas desde Google Maps.", rating: "4,7", reviews: 196, img: sElectricistas },
+  { title: "Restaurantes en Málaga", desc: "Claves para destacar y conseguir más reseñas.", rating: "4,6", reviews: 142, img: sRestauracion },
 ];
 
-const plans = [
-  {
-    name: "Free",
-    desc: "Para empezar a explorar nichos locales sin compromiso.",
-    items: [
-      "Búsquedas ilimitadas por sector y ciudad",
-      "Acceso a oportunidades destacadas",
-      "Datos básicos de volumen y competencia",
-      "1 alerta de nuevos nichos",
-    ],
-    cta: "Empezar gratis",
-    featured: false,
-  },
-  {
-    name: "Pro",
-    desc: "Para agencias y autónomos que viven del SEO local.",
-    items: [
-      "Todo lo del plan Free, y además:",
-      "KDI y CPC estimado en todas las oportunidades",
-      "Alertas ilimitadas y exportación a CSV",
-      "Acceso a la API y filtros avanzados",
-      "Soporte prioritario por chat",
-    ],
-    cta: "Probar Pro",
-    featured: true,
-  },
+const moreAnalysis = [
+  { title: "Clínica Dental Valencia", desc: "Cómo atraen más pacientes cada semana", img: sDentistas },
+  { title: "Fontaneros Sevilla", desc: "Estrategias que generan más llamadas", img: sFontaneria },
+  { title: "Reformas Málaga", desc: "Cómo consiguen más presupuestos", img: sReformas },
+  { title: "Electricistas Madrid", desc: "Claves para aparecer en el Top 3", img: sElectricistas },
 ];
-
-const testimonials = [
-  { quote: "Encontramos un nicho de fontaneros en una capital de provincia con cero competencia. En 4 meses captábamos 80 leads/mes.", author: "Sergio M.", role: "Agencia SEO local" },
-  { quote: "Local SEO Booker se convirtió en nuestra fuente nº1 para detectar oportunidades antes de pitchear a un cliente.", author: "Laura R.", role: "Consultora freelance" },
-  { quote: "Pasamos de 0 a 8.100 visitas/mes en el sector electricistas en Barcelona usando sus datos de KDI.", author: "Daniel P.", role: "CEO, estudio digital" },
-  { quote: "El export CSV nos ahorra horas cada semana cuando preparamos auditorías para nuevos clientes.", author: "María L.", role: "Head of SEO" },
-  { quote: "Hemos cerrado 3 contratos anuales solo presentando los nichos que vimos aquí. ROI inmediato.", author: "Iván G.", role: "Founder, agencia" },
-  { quote: "Para autónomos como yo es oro: sé exactamente en qué sectores moverme antes de invertir en contenido.", author: "Patricia D.", role: "SEO freelance" },
-];
-
-const badges = ["Top Marketplace 2026", "Mejor herramienta SEO Local", "Recomendado por agencias", "5 estrellas en Trustpilot", "Premio Innovación Local", "Partner de SEMrush"];
 
 function Index() {
-  const [howMode, setHowMode] = useState<"empresas" | "agencias">("empresas");
-  const howSteps = howMode === "empresas" ? howStepsCompanies : howStepsAgencies;
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-      {/* Promo strip — Upwork style */}
-      <div className="bg-background px-6 pt-5">
-        <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-6 rounded-[28px] bg-[linear-gradient(90deg,#f4f3c3_0%,#e6f3c8_45%,#cfe9c3_100%)] px-8 py-4 md:px-10">
-          <h4 className="text-base font-medium leading-snug text-foreground md:text-[17px]">
-            Deja de perder leads locales. Capta los nichos del top 1% con el plan Pro.
-          </h4>
-          <a href="#" className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-foreground underline underline-offset-4 hover:text-primary">
-            Empezar <ChevronRight className="h-4 w-4" />
-          </a>
-        </div>
-      </div>
-
-      {/* Hero — Upwork dark image card */}
-      <section className="bg-background px-6 pt-6">
-        <div className="mx-auto max-w-[1280px]">
-          <div className="relative overflow-hidden rounded-3xl bg-foreground">
-            <img src={heroPro} alt="Profesional SEO" className="absolute inset-0 h-full w-full object-cover object-[70%_center]" />
-            <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/55 to-transparent" />
-            <div className="relative px-8 py-14 text-white md:px-14 md:py-20">
-              <h1 className="max-w-2xl text-[44px] font-bold leading-[1.05] tracking-tight md:text-[64px]">
-                Te ayudo a escalar<br />posiciones en Google
-              </h1>
-              <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
-                Me he fijado en tu negocio por la oportunidad real que veo —ROI, poca competencia local— y porque sé exactamente cómo hacer que mejores tu posicionamiento.
-              </p>
-
-              <div className="mt-8 max-w-xl">
-                <div className="flex gap-1 rounded-full bg-white/10 p-1 text-sm font-medium backdrop-blur-sm">
-                  {["Soy empresa", "Soy agencia"].map((t, i) => (
-                    <button
-                      key={t}
-                      className={`flex-1 rounded-full px-5 py-2 transition ${
-                        i === 0 ? "bg-white text-foreground shadow-sm" : "text-white/85 hover:text-white"
-                      }`}
-                    >
-                      {t}
-                    </button>
-                  ))}
-                </div>
-                <div className="mt-3 flex items-center gap-2 rounded-full bg-white py-1.5 pl-5 pr-1.5 shadow-xl">
-                  <input
-                    className="flex-1 bg-transparent py-2 text-sm text-foreground outline-none placeholder:text-muted-foreground"
-                    placeholder="Busca un sector o ciudad (ej. dentistas Valencia)"
-                  />
-                  <button className="flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
-                    <Search className="h-4 w-4" /> Buscar
-                  </button>
-                </div>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {sectorChips.slice(0, 4).map(({ label, slug }) => (
-                    <Link
-                      key={label}
-                      to="/categoria/$slug"
-                      params={{ slug }}
-                      className="flex items-center gap-1.5 rounded-full border border-white/30 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm transition hover:border-white hover:bg-white/15"
-                    >
-                      {label}
-                      <svg className="h-3 w-3 opacity-60" viewBox="0 0 20 20" fill="none"><path d="M5.5 7.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="py-12">
-            <p className="text-center text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">Confían en nosotros más de 12.000 profesionales</p>
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-12 gap-y-3 text-lg font-semibold text-foreground/40">
-              <span className="text-primary">Inboundcycle</span>
-              <span className="italic">SEMrush</span>
-              <span>Webpositer</span>
-              <span className="text-primary">Aukera</span>
-              <span>Human Level</span>
-              <span>Internet República</span>
-            </div>
-          </div>
+      {/* Hero navy band */}
+      <section className="bg-[var(--navy-deep)] text-white">
+        <div className="mx-auto max-w-[1280px] px-6 pb-20 pt-12">
+          <h1 className="max-w-2xl text-[40px] font-extrabold leading-[1.1] tracking-tight md:text-[52px]">
+            ¿Qué hacen los negocios<br />que aparecen primero en<br />
+            <span className="text-[oklch(0.72_0.2_145)]">Google Maps</span>?
+          </h1>
+          <p className="mt-4 text-[15px] text-white/85">Descubre qué funciona en tu sector y en tu ciudad.</p>
+          <button className="mt-7 rounded-md bg-[oklch(0.55_0.22_260)] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[oklch(0.5_0.22_260)]">
+            Ver un ejemplo
+          </button>
         </div>
       </section>
 
-      {/* Sector grid */}
-      <section className="mx-auto max-w-[1280px] px-6 py-10">
-        <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Encuentra oportunidades para cada sector</h2>
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {sectorGrid.map(({ name, slug, Icon }) => (
-            <Link key={name} to="/categoria/$slug" params={{ slug }} className="group flex flex-col gap-6 rounded-xl border border-border bg-card p-5 transition hover:border-primary hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/30 bg-primary/5 text-primary">
-                <Icon className="h-5 w-5" />
-              </span>
-              <span className="text-[15px] font-semibold leading-snug group-hover:text-primary">{name}</span>
+      {/* Search bar (Booking-style, overlapping) */}
+      <div className="mx-auto -mt-7 max-w-[1280px] px-6">
+        <div className="grid grid-cols-1 items-stretch gap-0 rounded-lg border-[3px] border-[oklch(0.75_0.18_75)] bg-white shadow-md md:grid-cols-[1.2fr_1.2fr_1.4fr_auto]">
+          <Field icon={<MapPin className="h-5 w-5 text-muted-foreground" />} label="¿Qué sector?" placeholder="Ej: Fontanería" />
+          <Field icon={<MapPin className="h-5 w-5 text-muted-foreground" />} label="¿En qué ciudad?" placeholder="Ej: Madrid" />
+          <button className="flex items-center justify-between gap-3 border-l border-border px-4 py-3 text-left">
+            <span className="flex items-center gap-3">
+              <Users className="h-5 w-5 text-muted-foreground" />
+              <span className="text-[15px] text-foreground">2 adultos · 0 niños · 1 habitación</span>
+            </span>
+            <ChevronDown className="h-4 w-4 text-muted-foreground" />
+          </button>
+          <button className="m-1 rounded-md bg-[oklch(0.55_0.22_260)] px-7 text-base font-semibold text-white hover:bg-[oklch(0.5_0.22_260)]">
+            Buscar análisis
+          </button>
+        </div>
+        <label className="mt-3 inline-flex items-center gap-2 text-sm text-foreground">
+          <input type="checkbox" className="h-4 w-4 rounded border-border" /> Viajo por trabajo
+        </label>
+      </div>
+
+      {/* ¿Por qué LíderesMaps? */}
+      <section className="mx-auto max-w-[1280px] px-6 pt-10">
+        <h2 className="text-[22px] font-bold text-[var(--navy-deep)]">¿Por qué LíderesMaps?</h2>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map(({ Icon, title, desc, color }) => (
+            <div key={title} className="rounded-xl border border-border bg-card p-5">
+              <div className="flex items-center gap-3">
+                <span className={`flex h-10 w-10 items-center justify-center rounded-full text-white ${color}`}>
+                  <Icon className="h-5 w-5" />
+                </span>
+                <span className="text-[15px] font-bold text-[var(--navy-deep)]">{title}</span>
+              </div>
+              <p className="mt-4 text-[14px] leading-relaxed text-foreground/80">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ¿Qué ocurre en tu sector? */}
+      <SectionHeader title="¿Qué ocurre en tu sector?" cta="Ver todos los sectores" />
+      <div className="mx-auto max-w-[1280px] px-6">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {sectors.map((s) => (
+            <Link key={s.name} to="/categoria/$slug" params={{ slug: s.slug }} className="group">
+              <div className="overflow-hidden rounded-md">
+                <img src={s.img} alt={s.name} loading="lazy" className="aspect-[4/3] w-full object-cover transition group-hover:scale-105" />
+              </div>
+              <div className="mt-2.5">
+                <div className="text-[15px] font-bold text-[var(--navy-deep)] group-hover:underline">{s.name}</div>
+                <div className="text-[13px] text-muted-foreground">{s.count} mercados</div>
+              </div>
             </Link>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* How it works */}
-      <section className="mx-auto max-w-[1280px] px-6 py-14">
-        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-          <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Cómo funciona</h2>
-          <div className="flex gap-1 rounded-full border border-border bg-card p-1 text-sm font-medium">
-            <button
-              onClick={() => setHowMode("empresas")}
-              className={`rounded-full px-5 py-1.5 transition ${howMode === "empresas" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
-            >
-              Para empresas
-            </button>
-            <button
-              onClick={() => setHowMode("agencias")}
-              className={`rounded-full px-5 py-1.5 transition ${howMode === "agencias" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
-            >
-              Para agencias
-            </button>
-          </div>
-        </div>
-
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {howSteps.map((s, i) => (
-            <div key={s.title} className="flex flex-col">
-              <div className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${i === 0 ? "bg-[linear-gradient(135deg,#e6f3c8_0%,#a8e063_55%,#56ab2f_100%)]" : ""}`}>
-                {i === 0 ? (
-                  <div className="flex h-full flex-col justify-between p-7">
-                    <div className="flex items-center gap-2 text-foreground">
-                      <span className="flex h-8 w-8 items-center justify-center rounded bg-foreground text-sm font-black text-primary">L</span>
-                      <span className="text-lg font-bold tracking-tight">LocalSEOBooker</span>
-                    </div>
-                    <button className="self-start rounded-full bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm hover:bg-background/90">
-                      Empezar ahora
-                    </button>
-                  </div>
-                ) : (
-                  <img
-                    src={i === 1 ? featuredMadrid : cityBarcelona}
-                    alt={s.title}
-                    className="h-full w-full object-cover"
-                  />
-                )}
+      {/* ¿Qué ocurre en tu ciudad? */}
+      <SectionHeader title="¿Qué ocurre en tu ciudad?" cta="Ver todas las ciudades" />
+      <div className="mx-auto max-w-[1280px] px-6 pb-10">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {cities.map((c) => (
+            <a key={c.name} href="#" className="group block overflow-hidden rounded-md">
+              <div className="relative">
+                <img src={c.img} alt={c.name} loading="lazy" className="aspect-[4/3] w-full object-cover transition group-hover:scale-105" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-white">
+                  <div className="text-[15px] font-bold">{c.name}</div>
+                  <div className="text-[12px] opacity-90">{c.count} mercados</div>
+                </div>
               </div>
-              <h3 className="mt-5 text-[19px] font-semibold">{s.title}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{s.desc}</p>
-              {i === 0 && s.cta && (
-                <button className="mt-4 self-start rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
-                  {s.cta}
-                </button>
-              )}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Casos reales */}
+      <SectionHeader title="Casos reales de negocios locales" cta="Ver todos los casos" />
+      <div className="mx-auto max-w-[1280px] px-6 pb-10">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {cases.filter((c) => c.wide).map((c) => (
+            <CaseCard key={c.title} {...c} />
+          ))}
+        </div>
+        <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
+          {cases.filter((c) => !c.wide).map((c) => (
+            <CaseCard key={c.title} {...c} />
+          ))}
+        </div>
+      </div>
+
+      {/* Más análisis */}
+      <SectionHeader title="Más análisis que te pueden ayudar" cta="Ver todos los análisis" />
+      <div className="mx-auto max-w-[1280px] px-6 pb-12">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {moreAnalysis.map((m) => (
+            <div key={m.title} className="flex gap-3 rounded-md border border-border bg-card p-2.5">
+              <img src={m.img} alt={m.title} loading="lazy" className="h-[88px] w-[110px] shrink-0 rounded object-cover" />
+              <div className="flex flex-col justify-between py-1">
+                <div>
+                  <div className="text-[14px] font-bold text-[var(--navy-deep)]">{m.title}</div>
+                  <div className="mt-1 text-[12px] leading-snug text-foreground/75">{m.desc}</div>
+                </div>
+                <a href="#" className="inline-flex items-center gap-1 text-[12px] font-semibold text-[oklch(0.55_0.22_260)]">Ver análisis <ArrowRight className="h-3 w-3" /></a>
+              </div>
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* Calculator dark card */}
-      <section className="mx-auto max-w-[1280px] px-6 py-10">
-        <div className="relative overflow-hidden rounded-3xl bg-foreground text-white">
-          <div className="grid gap-10 p-8 md:grid-cols-2 md:items-center md:p-14">
+      {/* CTA banner */}
+      <section className="mx-auto max-w-[1280px] px-6 pb-16">
+        <div className="flex flex-col items-center gap-5 rounded-xl bg-[oklch(0.95_0.04_260)] px-8 py-7 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-5">
+            <div className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-md bg-white sm:flex">
+              <MapPin className="h-9 w-9 text-[oklch(0.7_0.18_45)]" />
+            </div>
             <div>
-              <h3 className="text-[32px] font-semibold leading-tight tracking-tight md:text-[40px]">
-                Calcula tu potencial<br />SEO local
-              </h3>
-              <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/70">
-                Estimamos el tráfico, leads e ingresos potenciales según el sector y la ciudad que elijas.
-              </p>
-              <div className="mt-7 flex items-center gap-2 rounded-full bg-white p-1.5 text-foreground shadow-lg">
-                <input
-                  className="flex-1 bg-transparent px-4 text-sm outline-none placeholder:text-muted-foreground"
-                  placeholder="Qué sector estás considerando, ej. dentistas"
-                />
-                <button className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
-                  Siguiente
-                </button>
-              </div>
-            </div>
-
-            <div className="relative flex items-center justify-center">
-              <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_center,rgba(20,168,0,0.45),transparent_60%)]" />
-              <div className="relative w-full max-w-sm rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                <div className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-white/70">Estimación de leads/mes</div>
-                <svg viewBox="0 0 320 140" className="mt-4 w-full">
-                  <defs>
-                    <linearGradient id="curveFill" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="#56ab2f" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="#56ab2f" stopOpacity="0" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M10,110 C70,110 90,40 160,40 C230,40 250,110 310,110 L310,130 L10,130 Z" fill="url(#curveFill)" />
-                  <path d="M10,110 C70,110 90,40 160,40 C230,40 250,110 310,110" stroke="#a8e063" strokeWidth="2" fill="none" />
-                  <circle cx="60" cy="100" r="4" fill="#a8e063" />
-                  <circle cx="160" cy="40" r="5" fill="#fff" stroke="#56ab2f" strokeWidth="2" />
-                  <circle cx="260" cy="100" r="4" fill="#a8e063" />
-                </svg>
-                <div className="mt-2 flex justify-between text-[11px] font-medium text-white/70">
-                  <span>Bajo</span>
-                  <span className="text-white">Típico</span>
-                  <span>Premium</span>
-                </div>
-                <div className="mt-4 flex justify-between text-sm font-semibold">
-                  <span>30/mes</span>
-                  <span className="text-primary">142/mes</span>
-                  <span>320/mes</span>
-                </div>
-              </div>
+              <h3 className="text-[18px] font-bold text-[var(--navy-deep)]">¿Quieres saber cómo posicionar tu negocio en el Top 3 de Google Maps?</h3>
+              <p className="mt-1 text-[13px] text-foreground/75">Solicita un análisis personalizado de tu mercado y te enseñamos las oportunidades para conseguir más visibilidad y clientes.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Plans */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-[1280px] px-6 py-14">
-          <div className="text-center">
-            <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Elige cómo quieres trabajar</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Planes flexibles para autónomos, empresas y agencias.</p>
-          </div>
-          <div className="mx-auto mt-10 grid max-w-3xl gap-5 md:grid-cols-2">
-            {plans.map((p) => (
-              <div key={p.name} className={`relative rounded-2xl bg-card p-7 ${p.featured ? "border-2 border-primary shadow-[0_18px_50px_-20px_rgba(20,168,0,0.35)]" : "border border-border"}`}>
-                {p.featured && (
-                  <span className="absolute right-5 top-5 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">Popular</span>
-                )}
-                <h3 className="text-xl font-bold">{p.name}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{p.desc}</p>
-                <div className="my-5 h-px bg-border" />
-                <p className="text-sm font-semibold">{p.name === "Free" ? "Incluye:" : "Todo lo de Free, más:"}</p>
-                <ul className="mt-3 space-y-2.5 text-sm">
-                  {p.items.filter((it) => !it.startsWith("Todo lo")).map((it) => (
-                    <li key={it} className="flex items-start gap-2.5">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <span className="leading-snug">{it}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className={`mt-7 w-full rounded-full px-4 py-3 text-sm font-semibold transition ${p.featured ? "bg-primary text-primary-foreground hover:bg-primary/90" : "border border-foreground/80 hover:bg-muted"}`}>
-                  {p.cta}
-                </button>
-              </div>
-            ))}
-          </div>
-          <p className="mt-5 text-center text-sm"><a href="#" className="text-primary underline underline-offset-4 hover:text-primary/80">Comparar todos los planes →</a></p>
-        </div>
-      </section>
-
-      {/* Testimonials with green wave */}
-      <section className="relative overflow-hidden bg-background py-16">
-        <svg className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 opacity-80" width="240" height="500" viewBox="0 0 240 500" fill="none">
-          <path d="M-40,40 C120,120 -20,240 120,320 C260,400 60,440 -40,500 L-40,40 Z" fill="#a8e063" fillOpacity="0.35" />
-          <path d="M-60,80 C100,160 -40,280 100,360 C240,440 40,480 -60,540 L-60,80 Z" fill="#56ab2f" fillOpacity="0.25" />
-        </svg>
-        <svg className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 rotate-180 opacity-80" width="240" height="500" viewBox="0 0 240 500" fill="none">
-          <path d="M-40,40 C120,120 -20,240 120,320 C260,400 60,440 -40,500 L-40,40 Z" fill="#a8e063" fillOpacity="0.35" />
-          <path d="M-60,80 C100,160 -40,280 100,360 C240,440 40,480 -60,540 L-60,80 Z" fill="#56ab2f" fillOpacity="0.25" />
-        </svg>
-        <div className="relative mx-auto max-w-[1280px] px-6">
-          <h2 className="text-[28px] font-semibold tracking-tight md:text-[34px]">Resultados reales con Local SEO Booker</h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <div key={t.author} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                <p className="text-[15px] leading-relaxed text-foreground/90">"{t.quote}"</p>
-                <div className="mt-5 flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-sm font-bold text-primary">
-                    {t.author.charAt(0)}
-                  </span>
-                  <div>
-                    <div className="text-sm font-bold">{t.author}</div>
-                    <div className="text-xs text-muted-foreground">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="flex shrink-0 flex-col items-end gap-2">
+            <a href="#" className="rounded-md bg-[oklch(0.55_0.22_260)] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[oklch(0.5_0.22_260)]">Solicitar análisis gratuito</a>
+            <a href="#" className="inline-flex items-center gap-1 text-[13px] font-medium text-[oklch(0.55_0.22_260)]">Ver cómo trabajamos <ArrowRight className="h-3 w-3" /></a>
           </div>
         </div>
       </section>
-
-      {/* Badges ribbon */}
-      <section className="bg-background py-14">
-        <div className="mx-auto max-w-[1280px] px-6 text-center">
-          <h2 className="text-[24px] font-semibold tracking-tight md:text-[28px]">Reconocidos por agencias y autónomos</h2>
-          <div className="mt-10 flex flex-wrap items-end justify-center gap-6">
-            {badges.map((b, idx) => {
-              const accents = ["#1e3a8a", "#0891b2", "#0d9488", "#ea580c", "#a16207", "#15803d"];
-              const c = accents[idx % accents.length];
-              return (
-                <div key={b} className="relative flex w-24 flex-col items-center">
-                  <div className="relative flex h-32 w-24 flex-col items-center justify-start rounded-t-[14px] bg-card pt-5 shadow-md ring-1 ring-border">
-                    <div className="absolute inset-x-0 top-0 h-2 rounded-t-[14px]" style={{ backgroundColor: c }} />
-                    <span className="text-[9px] font-bold uppercase tracking-wider" style={{ color: c }}>Top 2026</span>
-                    <span className="mt-1.5 flex h-10 w-10 items-center justify-center rounded-full text-lg font-black text-white" style={{ backgroundColor: c }}>★</span>
-                    <span className="mt-1 px-1.5 text-center text-[10px] font-bold leading-tight text-foreground">{b}</span>
-                  </div>
-                  <div className="flex w-24 justify-between">
-                    <div className="h-5 w-[46%] origin-top-right -skew-x-[20deg]" style={{ backgroundColor: c }} />
-                    <div className="h-5 w-[46%] origin-top-left skew-x-[20deg]" style={{ backgroundColor: c }} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Green CTA strip */}
-      <section className="px-6 py-10">
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-center gap-5 rounded-2xl bg-primary px-8 py-14 text-center text-primary-foreground">
-          <h3 className="text-2xl font-bold md:text-[32px]">Encuentra el nicho local que hará crecer tu negocio</h3>
-          <a href="#" className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-bold text-foreground hover:bg-white/90">
-            Explorar oportunidades
-          </a>
-        </div>
-      </section>
-
 
       {/* Footer */}
-      <footer className="bg-foreground text-white">
+      <footer className="border-t border-border bg-card">
         <div className="mx-auto grid max-w-[1280px] gap-8 px-6 py-12 text-sm md:grid-cols-5">
           <div>
-            <div className="flex items-center gap-2 font-bold">
-              <span className="inline-block h-5 w-5 rounded-sm bg-primary" />
-              LocalSEO<span className="text-primary">Booker</span>
+            <div className="flex items-center gap-2 font-extrabold text-[var(--navy-deep)]">
+              <MapPin className="h-5 w-5 text-[oklch(0.72_0.2_145)]" />
+              Líderes<span className="font-light italic">Maps</span>
             </div>
-            <p className="mt-4 text-xs text-white/60">© 2026 Local SEO Booker</p>
+            <p className="mt-4 text-xs text-muted-foreground">© 2026 LíderesMaps · SEO local para negocios</p>
           </div>
           {[
-            { h: "Buscar", l: ["Oportunidades", "Sectores", "Ciudades", "Tendencias", "Buscar agencia"] },
-            { h: "Producto", l: ["Alertas", "Exportar CSV", "API", "Planes"] },
-            { h: "Recursos", l: ["Blog", "Podcast", "Guías", "Casos de éxito", "Glosario"] },
-            { h: "Empresa", l: ["Sobre nosotros", "Carreras", "Contacto", "Aviso legal", "Privacidad"] },
+            { h: "Sectores", l: ["Fontaneros", "Electricistas", "Dentistas", "Reformas", "Más sectores"] },
+            { h: "Ciudades", l: ["Madrid", "Barcelona", "Valencia", "Sevilla", "Más ciudades"] },
+            { h: "Recursos", l: ["Casos reales", "Guías SEO local", "Blog", "Herramientas"] },
+            { h: "Empresa", l: ["Quiénes somos", "Contacto", "Aviso legal", "Privacidad"] },
           ].map((col) => (
             <div key={col.h}>
-              <div className="font-semibold">{col.h}</div>
-              <ul className="mt-3 space-y-2 text-white/70">
+              <div className="font-semibold text-[var(--navy-deep)]">{col.h}</div>
+              <ul className="mt-3 space-y-2 text-foreground/75">
                 {col.l.map((i) => (
-                  <li key={i}><a href="#" className="hover:text-primary">{i}</a></li>
+                  <li key={i}><a href="#" className="hover:text-[oklch(0.55_0.22_260)]">{i}</a></li>
                 ))}
               </ul>
             </div>
@@ -458,5 +238,46 @@ function Index() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function Field({ icon, label, placeholder }: { icon: React.ReactNode; label: string; placeholder: string }) {
+  return (
+    <label className="flex items-center gap-3 border-l border-border px-4 py-3 first:border-l-0">
+      {icon}
+      <span className="flex flex-col">
+        <span className="text-[12px] font-bold text-foreground">{label}</span>
+        <input className="bg-transparent text-[14px] text-muted-foreground outline-none placeholder:text-muted-foreground" placeholder={placeholder} />
+      </span>
+    </label>
+  );
+}
+
+function SectionHeader({ title, cta }: { title: string; cta: string }) {
+  return (
+    <div className="mx-auto mt-6 flex max-w-[1280px] items-center justify-between px-6 pb-4">
+      <h2 className="text-[22px] font-bold text-[var(--navy-deep)]">{title}</h2>
+      <a href="#" className="inline-flex items-center gap-1 text-[13px] font-semibold text-[oklch(0.55_0.22_260)]">{cta} <ArrowRight className="h-3 w-3" /></a>
+    </div>
+  );
+}
+
+function CaseCard({ title, desc, rating, reviews, img }: { title: string; desc: string; rating: string; reviews: number; img: string }) {
+  return (
+    <a href="#" className="group relative block overflow-hidden rounded-lg bg-[var(--navy-deep)]">
+      <img src={img} alt={title} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-55 transition group-hover:opacity-65" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--navy-deep)]/85 via-[var(--navy-deep)]/55 to-transparent" />
+      <div className="relative flex min-h-[170px] flex-col justify-between p-5 text-white">
+        <div>
+          <h3 className="text-[18px] font-bold leading-tight">{title}</h3>
+          <p className="mt-2 max-w-[260px] text-[13px] text-white/85">{desc}</p>
+        </div>
+        <div className="flex items-center gap-2 text-[12px]">
+          <span className="rounded bg-[oklch(0.55_0.22_260)] px-1.5 py-0.5 text-[11px] font-bold">{rating}</span>
+          <span className="font-semibold">Muy bien</span>
+          <span className="opacity-80">· {reviews} reseñas</span>
+        </div>
+      </div>
+    </a>
   );
 }
